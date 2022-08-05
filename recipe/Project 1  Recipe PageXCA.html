@@ -2,44 +2,22 @@
 
 <head>
   <title>Recipe Page</title>
-  <style>
-    body{
-    background-color: #fff8dc;
-    font-family: arial;
-    color: #191970;
-  }
-  h1{
-    text-align: center;
-    font-size:50px ;
-    text-decoration: underline double white;
-  }
-  p.introblurb{
-    text-align: center;
-  }
-  img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border: 25px double white;
-  }
-  ul{
-    list-style-type: square;
-  }
-  </style>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <h1>Creamy Lemon Garlic Pasta</h1>
-  <div id="#intro">
-    <img src="https://therecipecritic.com/wp-content/uploads/2014/03/lemon_garlic_cream_fettuccine2-667x1000.jpg" alt="lemon garlic pasta on a plate" / width="350" height="400">
+  <div id="intro">
+    <img id = "pastaimg" src="https://therecipecritic.com/wp-content/uploads/2014/03/lemon_garlic_cream_fettuccine2-667x1000.jpg" alt="lemon garlic pasta on a plate" height = "500px" width= "400px" />
 
     <p class = "introblurb">
        I was trying to figure out what to make with a lemon asides from lemonade and I
       <br>came across this recipe on social media and then modified to add some extra flavor.
     </p>
   </div>
-  <div id="#ingredients">
+
+  <div id="ingredients">
     <h3>Ingredients</h3>
     <ul>
       <li>1 box of dry pasta(your choice)</li>
@@ -53,13 +31,23 @@
       <li> 1 lemon juice squeezed</li>
       <li>1/4 cup chopped parsley or cilantro</li>
       <li>1 chopped serrano</li>
+      <li>1 tablespoon chicken bouillon</li>
       <li>black pepper to taste</li>
       <li>salt to taste</li>
-      <li>1 tablespoon chicken bouillon</li>
     </ul>
   </div>
+  <!--Adding div Row, Class, ID for Img Flex Box-->
+  <div class = "row">
+    
+  <div class = "column" id = "parsleyImgs">
+    </div>
+    <div class = "column" id = "garlicImgs">
+    </div>
+    <div class = "column" id = "lemonImgs">
+    </div>
+  </div>
 
-  <div id="#cooking instructions">
+  <div id="cookinginstructions">
     <h3>Cooking Instructions</h3>
     <ol>
       <li>Place a pot of water, add salt, and cook pasta on high heat until pasta is al dente.</li>
@@ -74,10 +62,10 @@
       <li>Once pasta is ready, drain water - reserve a cup of pasta water for sauce- and add to sauce.</li>
       <li>Mix pasta and sauce well, if sauce is too thick, add reserved pasta water to thin out.</li>
       <li>Serve immediately and enjoy!</li>
-      <p>This pizza is delicious!!!!</p>
     </ol>
   </div>
 
+  
   <div id="footer">
     <h4>Similar Recipes</h4>
     <p>If you are interested in other similar recipes, please visit the sites below:</p>
@@ -86,6 +74,7 @@
     <a href="https://therecipecritic.com/lemon-garlic-cream-fettuccini/" target="_blank">The Recipe Critic</a>
 
   </div>
+  <script src = "index.js"></script>
 </body>
 
 </html>
