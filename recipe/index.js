@@ -34,3 +34,32 @@ garlicImg.setAttribute('src', 'https://media.istockphoto.com/photos/close-up-of-
 garlicImg.setAttribute('height', '200px');
 garlicImg.setAttribute('width', '100px');
 garlicImgs.appendChild(garlicImg);
+
+//BUTTON Ingredient
+let ingbtn = document.createElement('BUTTON');
+ingbtn.setAttribute('class','button');
+ingbtn.setAttribute('id','ingredientbtn');
+bodyTest.appendChild(ingbtn);
+let ingbtnText = document.createTextNode("Ingredients");
+ingbtn.appendChild(ingbtnText);
+
+//BUTTON Ingredient - Event Listener
+let btnIngListener = document.getElementById('ingredientbtn');
+btnIngListener.addEventListener("click", mybtnIngListener);
+function mybtnIngListener(){
+    document.getElementsByClassName('bodyClass').innerHTML = "TESTING TEXT";
+}
+//BUTTON Cooking Instructions
+let cookbtn = document.createElement('BUTTON');
+ingbtn.setAttribute('class','button1');
+ingbtn.setAttribute('id','cookingbtn');
+bodyTest.appendChild(cookbtn);
+let cookbtnText = document.createTextNode("Cooking Instructions");
+cookbtn.appendChild(cookbtnText);
+
+//BUTTON Cooking Instructions - Event Listener
+let btnCookListener = document.getElementById('cookingbtn');
+btnCookListener.addEventListener("click", mybtnCookListener);
+function mybtnCookListener(){
+    document.getElementsByClassName('bodyClass').innerHTML = "TESTING TEXT";
+}
