@@ -1,0 +1,25 @@
+h1{
+  color: #330033;
+  text-align: center;
+  background-color: #dcd0ff;
+}
+input{
+    position: fixed;
+    left: 50%;
+}
+button{
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  color: white;
+  background-color: #dcd0ff;
+  position: fixed;
+    left: 50%;
+}
+img{
+  width: 32%
+}
+@media(max-width: 1080px){
+  img{
+    width:100%;
+  }
+}
