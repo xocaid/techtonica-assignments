@@ -9,12 +9,20 @@ body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', sans-serif
 }
 
-h1 {
+h1{
   font-size: 50px;
   color: white;
   text-align: center;
 }
+h4{
+  font-size: 30px;
+  color: white;
+  text-align: left;
+}
 
+form{
+  color: white;
+}
 /*BUTTON - By Class Name*/
 .collapsible {
   background-color: #001E00;
@@ -44,5 +52,28 @@ h1 {
   background-color: #001E00;
   color: white;
 }
-
 /*Padding: top right left bottom*/
+
+/*CSS for Social Media Buttons from W3Schools*/
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 80%;
+
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-github {
+  background: #55ACEE;
+  color: white;
+}

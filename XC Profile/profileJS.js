@@ -26,8 +26,6 @@ codeExperience.appendChild(pCodeExp);
 let pCodeExpText = document.createTextNode("CODE experience: LIST coding experience entries & past work experience you can apply to tech job.");
 pCodeExp.appendChild(pCodeExpText);
 
-
-
 //Accessing BUTTONS via shared Class = "collapsible"
 let collapse = document.getElementsByClassName("collapsible");
 //For Loop runs through each Button w/Class = "collapsible"
@@ -42,3 +40,6 @@ for (let i = 0; i < collapse.length; i++) {
     }
   });
 }
+
+
+
