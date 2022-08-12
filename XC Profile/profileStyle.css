@@ -8,7 +8,14 @@ body {
   /*FONT*/
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', sans-serif
 }
-
+img{
+  max-width: 30%;
+  border-radius: 50%;
+  border: 7px solid #284628;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 h1{
   font-size: 50px;
   color: white;

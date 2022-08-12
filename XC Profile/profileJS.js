@@ -1,4 +1,9 @@
 let br = document.createElement("br");
+let myImg = document.createElement('img');
+myImg.setAttribute('id', 'myImage');
+myImg.setAttribute('src', 'file:///Users/tpl522_10/Downloads/techtonicaXCA.jpeg');
+document.body.appendChild(myImg);
+
 //*************ABOUT ME*********
 //Add Collapsible Button aboutMe
 let btn1 = document.createElement("BUTTON");
