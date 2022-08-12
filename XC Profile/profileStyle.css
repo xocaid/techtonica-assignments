@@ -34,7 +34,7 @@ form{
   text-align: center;
 }
 input[type=text], select{
-  width: 100%;
+  width: 95%;
   background-color: lightgrey;
   color: darkgreen;
   margin: 10px;
@@ -103,21 +103,54 @@ input[type=submit]:hover{
   background: #55ACEE;
   color: white;
 }
+
 @media(min-width: 1200px){
   img{
     width: 35%;
     display: block;
     margin: 0 auto;
+    border: 7px solid hotpink;
   }
   body{
-    background-image: none;
-    background-color: #301934;
-    font-family: fantasy;
+    background-image: url('https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/04/a0004907/img/basic/a0004907_main.jpg');
+    background-color: #cd0037;
+    font-family: cursive;
     color:#D8BFD8;
   }
   .row {
     display: flex;
     background-color: #D8BFD8;
   }
-}
+  .collapsible{
+    font-family: cursive;
+    background-color: hotpink;
   }
+  .active,
+.collapsible:hover {
+  background-color: #cd0037;
+}
+.content {
+  padding: 10px 20px 20px 15px;
+  display: none;
+  overflow: auto;
+  /*if content goes over it will create scroll function*/
+  background-color: hotpink;
+  color: white;
+}
+form{
+  color: white;
+  background-color: rgb(238, 146, 192);
+  padding: 10px;
+  text-align: center;
+}
+input[type=submit]{
+  font-family: cursive;
+  width:100%;
+  background-color: #cd0037;
+  color: white;
+}
+input[type=submit]:hover{
+  background-color: hotpink;
+}
+}
+  

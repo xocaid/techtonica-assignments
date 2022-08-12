@@ -114,8 +114,8 @@ document.body.appendChild(newDiv5);
 //Add Form to contactMe
 let pgForm = document.createElement("FORM");
 pgForm.setAttribute('id', 'myPgForm');
-pgForm.setAttribute('method', 'POST');
-pgForm.setAttribute('action', '#');//NoValidate????
+//pgForm.setAttribute('method', 'POST');
+//pgForm.setAttribute('action', '#');//NoValidate????
 subscribe.appendChild(pgForm);
 
 //Add fullName input box
@@ -169,11 +169,9 @@ document.getElementById('myPgForm').appendChild(pgInput4);
 let btnSubmit = document.createElement('INPUT');
 btnSubmit.setAttribute('type', 'submit');
 btnSubmit.setAttribute('value', 'SUBMIT');
-btnSubmit.setAttribute('formTarget', '_blank');
+//btnSubmit.setAttribute('formTarget', '_blank');
 pgForm.appendChild(br.cloneNode());
 pgForm.appendChild(btnSubmit);
-
-//Add Event Listener to Submit button in Form
 
 
 
@@ -191,3 +189,13 @@ for (let i = 0; i < collapse.length; i++) {
     }
   });
 }
+
+//Add Event Listener to Submit button in Form
+pgForm.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  let fullNamePrint = document.getElementById('fullName').value;
+  let emailPrint = document.getElementById('emailAddress').value;
+  //console.log(`Full Name: ${fullNamePrint} and Email: ${emailPrint}`);
+  alert(`Thank you for subscribing ${fullNamePrint}. We will add your email, ${emailPrint}, to our email list.`);
+});
+//Is there a way to add print into/below the submit button or make the form disappear and print results?
