@@ -1,3 +1,4 @@
+let br = document.createElement("br");
 //*************ABOUT ME*********
 //Add Collapsible Button aboutMe
 let btn1 = document.createElement("BUTTON");
@@ -86,6 +87,7 @@ contactMe.appendChild(pContactMe);
 let pContactMeText = document.createTextNode("Email:my@email.com");
 let pContactMeText1 = document.createTextNode("Phone #: (123)555-4567");
 pContactMe.appendChild(pContactMeText);
+pContactMe.appendChild(br.cloneNode());
 pContactMe.appendChild(pContactMeText1);
 
 //*************SUBSCRIBE*********
@@ -108,7 +110,7 @@ document.body.appendChild(newDiv5);
 let pgForm = document.createElement("FORM");
 pgForm.setAttribute('id', 'myPgForm');
 pgForm.setAttribute('method', 'POST');
-pgForm.setAttribute('action', 'noValidate');
+pgForm.setAttribute('action', '#');//NoValidate????
 subscribe.appendChild(pgForm);
 
 //Add fullName input box
@@ -117,6 +119,7 @@ pgInput1.setAttribute('type', 'text');
 pgInput1.setAttribute('id', 'fullName');
 pgInput1.setAttribute('name', 'fullName');
 pgInput1.setAttribute('placeholder', 'i.e: John Smith');
+pgInput1.setAttribute('required', '');
 let pgInput1Txt = document.createTextNode("Full Name: ");
 pgForm.appendChild(pgInput1Txt);
 document.getElementById('myPgForm').appendChild(pgInput1);
@@ -128,6 +131,8 @@ pgInput2.setAttribute('type', 'text');
 pgInput2.setAttribute('id', 'emailAddress');
 pgInput2.setAttribute('name', 'emailAddress');
 pgInput2.setAttribute('placeholder', 'JSmith@example.com');
+pgInput2.setAttribute('required', '');
+pgForm.appendChild(br.cloneNode());
 let pgInput2Txt = document.createTextNode("Email: ");
 pgForm.appendChild(pgInput2Txt);
 document.getElementById('myPgForm').appendChild(pgInput2);
@@ -138,6 +143,7 @@ pgInput3.setAttribute('type', 'text');
 pgInput3.setAttribute('id', 'phoneNumber');
 pgInput3.setAttribute('name', 'phoneNumber');
 pgInput3.setAttribute('placeholder', '(987)555-1234');
+pgForm.appendChild(br.cloneNode());
 let pgInput3Txt = document.createTextNode("Phone #: ");
 pgForm.appendChild(pgInput3Txt);
 document.getElementById('myPgForm').appendChild(pgInput3);
@@ -148,9 +154,20 @@ pgInput4.setAttribute('type', 'text');
 pgInput4.setAttribute('id', 'address');
 pgInput4.setAttribute('name', 'address');
 pgInput4.setAttribute('placeholder', '515 Apple St.');
+pgForm.appendChild(br.cloneNode());
 let pgInput4Txt = document.createTextNode("Address: ");
 pgForm.appendChild(pgInput4Txt);
 document.getElementById('myPgForm').appendChild(pgInput4);
+
+
+//Create Submit Button
+let btnSubmit = document.createElement('INPUT');
+btnSubmit.setAttribute('type', 'submit');
+btnSubmit.setAttribute('value', 'SUBMIT');
+btnSubmit.setAttribute('formTarget', '_blank');
+pgForm.appendChild(br.cloneNode());
+pgForm.appendChild(btnSubmit);
+
 
 //Accessing BUTTONS via shared Class = "collapsible"
 let collapse = document.getElementsByClassName("collapsible");

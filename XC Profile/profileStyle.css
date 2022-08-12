@@ -22,8 +22,23 @@ h4{
 
 form{
   color: white;
-  content: "\a";
-  white-space: pre;/*these lines allow scroll horizontal*/
+  background-color: #284628;
+  padding: 10px;
+  text-align: center;
+}
+input[type=text], select{
+  width: 100%;
+  background-color: lightgrey;
+  color: darkgreen;
+  margin: 10px;
+}
+input[type=submit]{
+  width:100%;
+  background-color: #001E00;
+  color: white;
+}
+input[type=submit]:hover{
+  background-color: green;
 }
 
 
