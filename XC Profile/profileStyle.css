@@ -103,3 +103,21 @@ input[type=submit]:hover{
   background: #55ACEE;
   color: white;
 }
+@media(min-width: 1200px){
+  img{
+    width: 35%;
+    display: block;
+    margin: 0 auto;
+  }
+  body{
+    background-image: none;
+    background-color: #301934;
+    font-family: fantasy;
+    color:#D8BFD8;
+  }
+  .row {
+    display: flex;
+    background-color: #D8BFD8;
+  }
+}
+  }

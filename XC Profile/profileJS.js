@@ -173,6 +173,9 @@ btnSubmit.setAttribute('formTarget', '_blank');
 pgForm.appendChild(br.cloneNode());
 pgForm.appendChild(btnSubmit);
 
+//Add Event Listener to Submit button in Form
+
+
 
 //Accessing BUTTONS via shared Class = "collapsible"
 let collapse = document.getElementsByClassName("collapsible");
