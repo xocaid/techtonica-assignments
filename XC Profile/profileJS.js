@@ -65,7 +65,7 @@ let pCodeExpText = document.createTextNode("CODE experience: LIST coding experie
 pCodeExp.appendChild(pCodeExpText);
 
 //*************CONTACT ME*********
-//Add Collapsible Button Code Experience
+//Add Collapsible Button Contact Me
 let btn4 = document.createElement("BUTTON");
 btn4.setAttribute('class', 'collapsible');
 btn4.setAttribute('id', 'btncontactMe');
@@ -73,11 +73,84 @@ let btn4Text = document.createTextNode("Contact Me");
 btn4.appendChild(btn4Text);
 document.body.appendChild(btn4);
 
-//Add new Div: Code Experience
+//Add new Div: contactMe
 let newDiv4 = document.createElement('div');
 newDiv4.setAttribute('id', 'contactMe');
 newDiv4.setAttribute('class', 'content')
 document.body.appendChild(newDiv4);
+
+//Adding P to btn: contactMe
+let pContactMe = document.createElement('p');
+pContactMe.setAttribute('id', 'pContactMes');
+contactMe.appendChild(pContactMe);
+let pContactMeText = document.createTextNode("Email:my@email.com");
+let pContactMeText1 = document.createTextNode("Phone #: (123)555-4567");
+pContactMe.appendChild(pContactMeText);
+pContactMe.appendChild(pContactMeText1);
+
+//*************SUBSCRIBE*********
+//Add Collapsible Button subscribe
+let btn5 = document.createElement("BUTTON");
+btn5.setAttribute('class', 'collapsible');
+btn5.setAttribute('id', 'btnSubscribe');
+let btn5Text = document.createTextNode("Subscribe");
+btn5.appendChild(btn5Text);
+document.body.appendChild(btn5);
+
+//Add new Div: subscribe
+let newDiv5 = document.createElement('div');
+newDiv5.setAttribute('id', 'subscribe');
+newDiv5.setAttribute('class', 'content')
+document.body.appendChild(newDiv5);
+
+//********FORM*************
+//Add Form to contactMe
+let pgForm = document.createElement("FORM");
+pgForm.setAttribute('id', 'myPgForm');
+pgForm.setAttribute('method', 'POST');
+pgForm.setAttribute('action', 'noValidate');
+subscribe.appendChild(pgForm);
+
+//Add fullName input box
+let pgInput1 = document.createElement("INPUT");
+pgInput1.setAttribute('type', 'text');
+pgInput1.setAttribute('id', 'fullName');
+pgInput1.setAttribute('name', 'fullName');
+pgInput1.setAttribute('placeholder', 'i.e: John Smith');
+let pgInput1Txt = document.createTextNode("Full Name: ");
+pgForm.appendChild(pgInput1Txt);
+document.getElementById('myPgForm').appendChild(pgInput1);
+
+
+//Add emailAddress input box
+let pgInput2 = document.createElement("INPUT");
+pgInput2.setAttribute('type', 'text');
+pgInput2.setAttribute('id', 'emailAddress');
+pgInput2.setAttribute('name', 'emailAddress');
+pgInput2.setAttribute('placeholder', 'JSmith@example.com');
+let pgInput2Txt = document.createTextNode("Email: ");
+pgForm.appendChild(pgInput2Txt);
+document.getElementById('myPgForm').appendChild(pgInput2);
+
+//Add phoneNumber input box
+let pgInput3 = document.createElement("INPUT");
+pgInput3.setAttribute('type', 'text');
+pgInput3.setAttribute('id', 'phoneNumber');
+pgInput3.setAttribute('name', 'phoneNumber');
+pgInput3.setAttribute('placeholder', '(987)555-1234');
+let pgInput3Txt = document.createTextNode("Phone #: ");
+pgForm.appendChild(pgInput3Txt);
+document.getElementById('myPgForm').appendChild(pgInput3);
+
+//Add address input box
+let pgInput4 = document.createElement("INPUT");
+pgInput4.setAttribute('type', 'text');
+pgInput4.setAttribute('id', 'address');
+pgInput4.setAttribute('name', 'address');
+pgInput4.setAttribute('placeholder', '515 Apple St.');
+let pgInput4Txt = document.createTextNode("Address: ");
+pgForm.appendChild(pgInput4Txt);
+document.getElementById('myPgForm').appendChild(pgInput4);
 
 //Accessing BUTTONS via shared Class = "collapsible"
 let collapse = document.getElementsByClassName("collapsible");

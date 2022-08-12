@@ -22,7 +22,11 @@ h4{
 
 form{
   color: white;
+  content: "\a";
+  white-space: pre;/*these lines allow scroll horizontal*/
 }
+
+
 /*BUTTON - By Class Name*/
 .collapsible {
   background-color: #001E00;
