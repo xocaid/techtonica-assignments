@@ -1,6 +1,6 @@
 body {
   /*Background */
-  background-image: url(https://images.unsplash.com/photo-1551970634-747846a548cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z3JlZW4lMjBsZWFmc3xlbnwwfHwwfHw%3D&w=1000&q=80);
+  background-image: url('https://images.unsplash.com/photo-1551970634-747846a548cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z3JlZW4lMjBsZWFmc3xlbnwwfHwwfHw%3D&w=1000&q=80');
   background-repeat: no-repeat;
   background-size: cover;
   height: 950px;
@@ -8,12 +8,46 @@ body {
   /*FONT*/
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', sans-serif
 }
-
-h1 {
+img{
+  max-width: 30%;
+  border-radius: 50%;
+  border: 7px solid #284628;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+h1{
   font-size: 50px;
   color: white;
   text-align: center;
 }
+h4{
+  font-size: 30px;
+  color: white;
+  text-align: left;
+}
+
+form{
+  color: white;
+  background-color: #284628;
+  padding: 10px;
+  text-align: center;
+}
+input[type=text], select{
+  width: 95%;
+  background-color: lightgrey;
+  color: darkgreen;
+  margin: 10px;
+}
+input[type=submit]{
+  width:100%;
+  background-color: #001E00;
+  color: white;
+}
+input[type=submit]:hover{
+  background-color: green;
+}
+
 
 /*BUTTON - By Class Name*/
 .collapsible {
@@ -44,5 +78,79 @@ h1 {
   background-color: #001E00;
   color: white;
 }
-
 /*Padding: top right left bottom*/
+
+/*CSS for Social Media Buttons from W3Schools*/
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 80%;
+
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-github {
+  background: #55ACEE;
+  color: white;
+}
+
+@media(min-width: 1200px){
+  img{
+    width: 35%;
+    display: block;
+    margin: 0 auto;
+    border: 7px solid hotpink;
+  }
+  body{
+    background-image: url('https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/04/a0004907/img/basic/a0004907_main.jpg');
+    background-color: #cd0037;
+    font-family: cursive;
+    color:#D8BFD8;
+  }
+  .row {
+    display: flex;
+    background-color: #D8BFD8;
+  }
+  .collapsible{
+    font-family: cursive;
+    background-color: hotpink;
+  }
+  .active,
+.collapsible:hover {
+  background-color: #cd0037;
+}
+.content {
+  padding: 10px 20px 20px 15px;
+  display: none;
+  overflow: auto;
+  /*if content goes over it will create scroll function*/
+  background-color: hotpink;
+  color: white;
+}
+form{
+  color: white;
+  background-color: rgb(238, 146, 192);
+  padding: 10px;
+  text-align: center;
+}
+input[type=submit]{
+  font-family: cursive;
+  width:100%;
+  background-color: #cd0037;
+  color: white;
+}
+input[type=submit]:hover{
+  background-color: hotpink;
+}
+}
+  
