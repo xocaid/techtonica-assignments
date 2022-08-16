@@ -1,7 +1,7 @@
 let br = document.createElement("br");
 let myImg = document.createElement('img');
 myImg.setAttribute('id', 'myImage');
-myImg.setAttribute('src', 'file:///Users/tpl522_10/Downloads/techtonicaXCA.jpeg');
+myImg.setAttribute('src', 'https://media-exp1.licdn.com/dms/image/C5622AQGr1Apbwi1Cow/feedshare-shrink_2048_1536/0/1659639646579?e=1663804800&v=beta&t=SQT3E9XuYHbo98iQrv6Elh9H49JqwWitFkesRpIh6jo');
 document.body.appendChild(myImg);
 
 //*************ABOUT ME*********
