@@ -41,3 +41,9 @@ let submitBtn = document.createElement('INPUT');
 submitBtn.setAttribute('type', 'submit');
 submitBtn.setAttribute('value', 'Submit Guess');
 document.body.appendChild(submitBtn);
+
+//Add Submit Button
+let submitBtn1 = document.createElement('INPUT');
+submitBtn1.setAttribute('type', 'submit1');
+submitBtn1.setAttribute('value', 'Submit Guess1');
+document.body.appendChild(submitBtn1);
