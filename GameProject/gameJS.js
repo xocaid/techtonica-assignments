@@ -13,6 +13,20 @@ let gameForm = document.createElement("FORM");
 gameForm.setAttribute('id', 'myGameForm');
 myGameDiv.appendChild(gameForm);
 
+//Add Range LOW Input Text Box
+let RangeInputLow = document.createElement("INPUT");
+RangeInputLow.setAttribute('type', 'text');
+RangeInputLow.setAttribute('id', 'rangeLow');
+RangeInputLow.setAttribute('placeholder', 'Enter Low Range');
+document.getElementById('myGameForm').appendChild(RangeInputLow);
+
+//Add Range HIGH Input Text Box
+let RangeInputHigh1 = document.createElement("INPUT");
+RangeInputHigh1.setAttribute('type', 'text');
+RangeInputHigh1.setAttribute('id', 'rangeHigh');
+RangeInputHigh1.setAttribute('placeholder', 'Enter High Range');
+document.getElementById('myGameForm').appendChild(RangeInputHigh1);
+
 //Add User Guess Input Text Box
 let userInputBox = document.createElement("INPUT");
 userInputBox.setAttribute('type', 'text');
@@ -33,7 +47,7 @@ gameForm.appendChild(submitBtn);
 let resetBtn = document.createElement('BUTTON');
 resetBtn.setAttribute('type', 'reset');
 resetBtn.setAttribute('id', 'reset');
-resetBtn.innerText = "Clear";
+resetBtn.innerText = "Reset";
 gameForm.appendChild(br.cloneNode());
 gameForm.appendChild(br.cloneNode());
 gameForm.appendChild(resetBtn);
@@ -69,32 +83,41 @@ function reset() {
   gameP.innerHTML = "";
   gameP1.innerHTML = "";
   gameP3.innerHTML = "";
+//   gameRandomNumber = generateRandomNum();
+// console.log(gameRandomNumber);
 };
 
 //Generates Random Number
-function generateRandomNum() {
-  let generatedNum = Math.floor(Math.random() * 101)
+function generateRandomNum(low, high) {
+  //Math.floor(Math.random() * ( 31)) + min;
+  //let generatedNum = Math.floor(Math.random() * 101)
+  console.log(low)
+  console.log(high)
+  let generatedNum = Math.floor(Math.random() * ( high-low +1)) + low;
+  console.log(generatedNum)
   return generatedNum;
+
 }
 
-let gameRandomNumber = generateRandomNum();
-console.log(gameRandomNumber); //prints into console
+// let gameRandomNumber = generateRandomNum();
+// console.log(gameRandomNumber); //prints into console
 
-function enterNum(guess) {
+function enterNum(guess, randomNum, low, high) {
   if (isNaN(guess)) {
     return "Letters are not allowed";
   } else {
-    if (Number(guess) > 0 && Number(guess) < 101) {
-      gameP3.innerHTML = compareNums(guess)
+    if (guess >= low && guess <= high) {//could be +1 
+      gameP3.innerHTML = compareNums(guess, randomNum)
       return "";
     } else {
-      return "Please enter a number between 1- 100.";
+      return `Please enter a number between ${low} - ${high}.`;
     }
   }
 }
 
-function compareNums(guess) {
-  if (gameRandomNumber === Number(guess)) {
+function compareNums(guess, randomNum) {
+
+  if (randomNum === Number(guess)) {
     return "Congratulations you guessed correctly!";
   } else {
     return "Better luck next time.";
@@ -104,15 +127,18 @@ function compareNums(guess) {
 //Add eventListener to Submit Button
 gameForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  let userGuessPrint = document.getElementById('userGuess').value;
-  gameP2.innerHTML = enterNum(userGuessPrint);
+  let userRangeHigh = Number(document.getElementById('rangeHigh').value);
+  let userRangeLow = Number(document.getElementById('rangeLow').value);
+  let userGuessPrint = Number(document.getElementById('userGuess').value);
+  let gameRandomNumber = generateRandomNum(userRangeLow,userRangeHigh);
+  gameP2.innerHTML = enterNum(userGuessPrint, gameRandomNumber, userRangeLow, userRangeHigh);
   gameP.innerHTML = `Your guess was: ${userGuessPrint}`;
   gameP1.innerHTML = `The random number was: ${gameRandomNumber}`;
 
 });
 
 
-
+//in order to reset/get a new number after refresh need to put it in reset or sbumit event listener
 
   //INPUt: guess number between 1-100
 //number cannot be lower than 0 or greater than 100
