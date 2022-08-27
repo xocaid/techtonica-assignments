@@ -1,0 +1,40 @@
+.App {
+  background-size: auto;
+  background-image: URL("https://media.istockphoto.com/vectors/books-seamless-pattern-vector-id470721440?k=20&m=470721440&s=612x612&w=0&h=o3yXdl1xi_kbMdyP6NRirKX4Y0m8WjVgul9zl4i5LtU=");
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 20px;
+}
+.flashcard {
+  color: white;
+  font-size: 30px;
+  line-height: 200px; /*Space at the top & bottom*/
+  width: 200px;
+  border: 1px solid pink; /*At this point, the card, they are stacked on top of each other*/
+  margin: 18px; /*Adds space between cards*/
+  float: left;
+  cursor: pointer;
+  user-select: none; /*Doesn't allow for the text within the box to be highlighted/selected*/
+}
+.flashcard.front {
+  background-color: rgb(21, 44, 109);
+}
+.flashcard.back {
+  background-color: rgb(159, 160, 255);
+}
+
+button {
+  color: white;
+  background-color: teal;
+  font-size: 40px;
+}
+.correct {
+  color: green;
+  font-size: 40px;
+  float: none;
+}
+.incorrect {
+  color: red;
+  font-size: 40px;
+  float: none;
+}

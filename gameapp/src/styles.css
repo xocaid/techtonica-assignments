@@ -1,0 +1,58 @@
+body{
+  background-color: blue;
+  background-image: linear-gradient(to bottom right, rgb(28, 28, 86), rgb(192, 150, 255));
+  color: white;
+}
+.App {
+  /*background-image: image(min-height: 100; min-width: 1024px) ;
+  background-image: URL("https://media.istockphoto.com/vectors/books-seamless-pattern-vector-id470721440?k=20&m=470721440&s=612x612&w=0&h=o3yXdl1xi_kbMdyP6NRirKX4Y0m8WjVgul9zl4i5LtU=");
+  */
+  /* background-color: blue;
+  background-image: linear-gradient(to bottom right, orange); */
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 20px;
+}
+.flashcard {
+  color: white;
+  font-size: 30px;
+  line-height: auto; /*Space at the top & bottom*/
+  width: 300px;
+  padding: 20px;
+  border: 5px solid rgb(121, 160, 255); /*At this point, the card, they are stacked on top of each other*/
+  margin: 18px; /*Adds space between cards*/
+  float: left;
+  cursor: pointer;
+  user-select: none; /*Doesn't allow for the text within the box to be highlighted/selected*/
+}
+.flashcard.front {
+  background-color: rgb(21, 44, 109);
+}
+.flashcard.back {
+  background-color: rgb(159, 160, 255);
+}
+.KeepCount{
+  background-color: rgb(21, 44, 109);
+  line-height: auto; /*Space at the top & bottom*/
+  width: 300px;
+  border: 5px solid rgb(121,160,255); /*At this point, the card, they are stacked on top of each other*/
+  margin: 20px; /*Adds space between cards*/
+  padding: 15px;
+  float: right;
+  user-select: none;
+}
+button {
+  color: white;
+  background-color: rgb(192, 150, 255);
+  font-size: 40px;
+}
+.correct {
+  color: rgb(255, 234, 0);
+  font-size: 40px;
+  float: none;
+}
+.incorrect {
+  color: rgb(255, 0, 0);
+  font-size: 40px;
+  float: none;
+}
