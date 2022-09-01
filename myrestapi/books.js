@@ -64,6 +64,12 @@ const BOOKS = [{
   "author": "Sarah J. Maas",
   "format": "Hardcover"
 }
+{
+  "isbn": "TESTing this for gitignore",
+  "title": "Testing for gitignore",
+  "author": "Sarah J. Maas",
+  "format": "Hardcover"
+}
 ]
 
 export default BOOKS;
