@@ -46,7 +46,6 @@ async function displayBooks() {
 displayBooks();
 
 
-
 const deleteBook = (isbn) => {
   const xhttp = new XMLHttpRequest();
 

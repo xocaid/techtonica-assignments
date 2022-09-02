@@ -18,25 +18,24 @@ const BOOKS = [{
   "format": "Hardcover"
 },
 {
-  "isbn": "0553096095",
+  "isbn": "553096095",
   "title": "Harry Potter and the Goblet of Fire",
   "author": "J.K. Rowling",
   "format": "Hardcover"
 },
 {
-  "isbn": "0307474720",
+  "isbn": "307474720",
   "title": "Cien anos de soledad",
   "author": "Gabriel Garcia Marquez",
   "format": "Paperback"
 },
-{
-  "isbn": " 9781423101260",
+{ "isbn": "9781423101260",
   "title": "Blue Bloods",
   "author": "Melissa de la Cruz",
   "format": "Hardcover"
 },
 {
-  "isbn": "0786838930",
+  "isbn": "786838930",
   "title": "Masquerade",
   "author": "Melissa de la Cruz",
   "format": "Hardcover"

@@ -9,6 +9,10 @@ import path from "path";
 import books from "./myBooks.js";
 //comes with EXPRESS package
 
+//added bookList because it is not being read from line 9 books
+//as per tutorial
+//changed were it all variables that said books to bookList
+let bookList = books;
 
 //Initializes instance of EXPRESS & creates the app
 const app = express();
@@ -29,7 +33,7 @@ app.use(express.static('bookList'));
 //Displays your list of books(database)from myBooks.js file in an array
 //This will be displayed on localhost:8081/api/myBooks
 app.get('/api/myBooks', (req, res) => {
-  res.json(books);
+  res.json(bookList);
 });
 
 
@@ -49,9 +53,10 @@ app.post('/book', (req, res) => {
 
   //output the book to the console for debugging;
   console.log(book);
-  books.push(book);
+  bookList.push(book);
 
-  res.send("Book added");
+  //res.send("Book added");
+  res.redirect('/');
 });
 
 // app.get('/book', (req, res) => {
@@ -65,7 +70,7 @@ app.delete('/book/:isbn', (req, res) => {
   const isbn = req.params.isbn;
 
   // Remove item from the books array
-  books = books.filter(i => {
+  bookList  = bookList.filter(i => {
     if (i.isbn !== isbn) {
       return true;
     }
@@ -84,10 +89,10 @@ app.post('/book/:isbn', (req, res) => {
   const newBook = req.body;
 
   // Remove item from the books array
-  for (let i = 0; i < books.length; i++) {
+  for (let i = 0; i < bookList.length; i++) {
     let book = books[i]
     if (book.isbn === isbn) {
-      books[i] = newBook;
+      bookList[i] = newBook;
     }
   }
 
