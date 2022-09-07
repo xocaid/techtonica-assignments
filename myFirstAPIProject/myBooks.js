@@ -1,12 +1,13 @@
 //API Book Information
+//need to remove 0 from beginning of ISBN, it was not being recognized and not allowing for delete to occur
 const BOOKS = [{
-  "isbn": "6073156030",
+  "isbn": "06073156030",
   "title": "The Murmur of Bees",
   "author": "Sofia Segovia",
   "format": "Paperback"
 },
 {
-  "isbn": "1594483850",
+  "isbn": "01594483850",
   "title": "A Thousand Splendid Suns",
   "author": "Khaled Hosseini",
   "format": "Hardcover"
@@ -59,7 +60,7 @@ const BOOKS = [{
   "format": "Paperback"
 },
 {
-  "isbn": "0735219109",
+  "isbn": "735219109",
   "title": "Where the Crawdads Sing",
   "author": "Delia Owens",
   "format": "Hardcover"

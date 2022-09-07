@@ -90,12 +90,12 @@ app.post('/book/:isbn', (req, res) => {
 
   // Remove item from the books array
   for (let i = 0; i < bookList.length; i++) {
-    let book = books[i]
+    let book = booksList[i]
     if (book.isbn === isbn) {
       bookList[i] = newBook;
     }
   }
-
+  console.log('Trying to edit');
   res.send('Book is edited');
 });
 
