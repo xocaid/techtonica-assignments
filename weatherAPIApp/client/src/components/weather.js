@@ -28,21 +28,21 @@ const Weather = (props) => {
   //props comes from Line 3 on client -->components --> students.js
   return (
     <div className="Container">
-      <h1>The weather in {props.city} is currently:</h1>
-      {weather.map((weather, index) => {
-        return (<div key={index} alt="icon">
-          <img src={'http://openweathermap.org/img/wn/09d@2x.png'} alt="shower rain" />
-          <p>City: {weather.name}</p>
-          <p>Description: {weather.weather.description}</p>
-          <p>Temperature: {weather.main.temp}</p>
-          {/* <p>Feels Like: {weather.current.feels_like}</p> */}
-          <p>Max Temp: {weather.main.temp_max}</p>
-          <p>Min Temp: {weather.main.temp_min}</p>
-          <p>Humidity: {weather.main.humidity}</p>
-          <p>Sunrise: {weather.sys.sunrise}</p>
-          <p>Sunset: {weather.sys.sunset}</p>
-        </div>)
-      })}
+      <h2>The weather in {props.city} is currently:</h2>
+        {weather.map((weather, index) => {
+          return (<div key={index} alt="icon">
+            <img src={'http://openweathermap.org/img/wn/09d@2x.png'} alt="shower rain" />
+            <p><b>City:</b> {weather.name}</p>
+            <p><b>Description: </b> {weather.weather.description}</p>
+            <p><b>Temperature: </b> {weather.main.temp}</p>
+            {/* <p>Feels Like: {weather.current.feels_like}</p> */}
+            <p><b>Max Temp: </b> {weather.main.temp_max}</p>
+            <p><b>Min Temp: </b> {weather.main.temp_min}</p>
+            <p><b>Humidity: </b> {weather.main.humidity}</p>
+            <p><b>Sunrise: </b> {weather.sys.sunrise}</p>
+            <p><b>Sunset: </b> {weather.sys.sunset}</p>
+          </div>)
+        })}
     </div>
 
   )
