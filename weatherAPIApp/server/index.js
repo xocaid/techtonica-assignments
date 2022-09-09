@@ -33,52 +33,52 @@ app.get('/api/weather', (req, res) => {
   });
 })
 
-// app.get('/api/oaxweather', (req, res) => {
-//   const WEATHER = [
-//     {
-//       "coord": {
-//           "lon": 96.7266,
-//           "lat": 17.0732
-//       },
-//       "weather": 
-//           {
-//               "id": 300,
-//               "main": "Cloudy",
-//               "description": "Cloudy",
-//               "icon": "03n"
-//           },
-//       "base": "stations",
-//       "main": {
-//           "temp": 66,
-//           "pressure": '29.80 in',
-//           "humidity": 81,
-//           "temp_min": 75,
-//           "temp_max": 62
-//       },
-//       "visibility": 10000,
-//       "wind": {
-//           "speed": 4.1,
-//           "deg": 80
-//       },
-//       "clouds": {
-//           "all": 90
-//       },
-//       "dt": 1485789600,
-//       "sys": {
-//           "type": 1,
-//           "id": 5091,
-//           "message": 0.0103,
-//           "country": "GB",
-//           "sunrise": '7:14am',
-//           "sunset": '7:33pm'
-//       },
-//       "id": 2643743,
-//       "name": "Oaxaca",
-//       "cod": 200
-//   }
-//   ]
-//   res.json(WEATHER);
-// });
+app.get('/api/oaxweather', (req, res) => {
+  const OAXWEAT = [
+    {
+      "coord": {
+          "lon": 96.7266,
+          "lat": 17.0732
+      },
+      "weather": 
+          {
+              "id": 300,
+              "main": "Cloudy",
+              "description": "Cloudy",
+              "icon": "03n"
+          },
+      "base": "stations",
+      "main": {
+          "temp": 66,
+          "pressure": '29.80 in',
+          "humidity": 81,
+          "temp_min": 75,
+          "temp_max": 62
+      },
+      "visibility": 10000,
+      "wind": {
+          "speed": 4.1,
+          "deg": 80
+      },
+      "clouds": {
+          "all": 90
+      },
+      "dt": 1485789600,
+      "sys": {
+          "type": 1,
+          "id": 5091,
+          "message": 0.0103,
+          "country": "GB",
+          "sunrise": '7:14am',
+          "sunset": '7:33pm'
+      },
+      "id": 2643743,
+      "name": "Oaxaca",
+      "cod": 200
+  }
+  ]
+  res.json(OAXWEAT);
+});
 
 app.listen(PORT, () => console.log(`Back-end server is running on port: ${PORT}.`));
 
