@@ -1,3 +1,4 @@
+//THIS IS FRONT END
 //students.js is where you are creating the information that will be displayed in the app.js page
 //in order to see the server & client on localhost, it has to be called npm start in the folder
 import { useState, useEffect } from "react";
@@ -29,16 +30,17 @@ const Weather = (props) => {
     <div className="Container">
       <h1>The weather in {props.city} is currently:</h1>
       {weather.map((weather, index) => {
-        return (<div key={index}>
-          <p>City: {props.city}</p>
-          <p>Description: Need to add information</p>
-          <p>Temperature: {weather.current.temp}</p>
-          <p>Feels Like: Need to add information</p>
-          <p>Max Temp: Need to add information</p>
-          <p>Min Temp: Need too add information</p>
-          <p>Humidity: {weather.current.humidity}</p>
-          <p>Sunrise: {weather.current.sunrise}</p>
-          <p>Sunset: {weather.current.sunset}</p>
+        return (<div key={index} alt="icon">
+          <img src={'http://openweathermap.org/img/wn/09d@2x.png'} alt="shower rain" />
+          <p>City: {weather.name}</p>
+          <p>Description: {weather.weather.description}</p>
+          <p>Temperature: {weather.main.temp}</p>
+          {/* <p>Feels Like: {weather.current.feels_like}</p> */}
+          <p>Max Temp: {weather.main.temp_max}</p>
+          <p>Min Temp: {weather.main.temp_min}</p>
+          <p>Humidity: {weather.main.humidity}</p>
+          <p>Sunrise: {weather.sys.sunrise}</p>
+          <p>Sunset: {weather.sys.sunset}</p>
         </div>)
       })}
     </div>
