@@ -26,6 +26,8 @@ useEffect(() => {
   return (
     <div>
       <p>This is a Quiz Info placeholder.</p>
+      <p>Question: {quizInfo.results[0].question} </p>
+      <p>Response: {quizInfo.results[0].correct_answer}</p>
     </div>
   )
 }
