@@ -28,6 +28,23 @@
   color: #61dafb;
 }
 
+
+
+.question-section{
+  margin: 0 auto;
+  background-color: blue;
+  padding: 16px;
+  border-radius: 16px;
+  color: yellow;
+  box-shadow: rgb(50, 50, 93, 0.25) 0px 30px 60px -12px,
+  rgba(0, 0, 0, 3) 0px, 18px 36px -18px;
+
+  width: 80%;
+  height: auto;
+}
+button{
+  background-color: aqua;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
