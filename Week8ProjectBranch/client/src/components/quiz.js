@@ -38,6 +38,12 @@ setShowScore(true);
 
   }
 
+  const restartGame= () =>{
+    setScore(0);
+    setCurrentQuestions(0);
+    setShowScore(false);
+  }
+
   // const loadData = () => {
   //   fetch('http://localhost:8080/api/quizinfo')
   //   .then((response) => response.json())
@@ -74,6 +80,9 @@ setShowScore(true);
       {showScore ? (
         <div className="score-section">
           You scored {score} out of {quizInfo.length}
+          <p>
+          <button onClick={() => restartGame()}>Restart Quiz</button>
+          </p>
         </div>
       ) : (
         <>
