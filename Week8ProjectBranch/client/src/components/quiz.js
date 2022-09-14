@@ -8,11 +8,34 @@ const QuizQs = () => {
   //useState is at 0 because you want to start at the first question in the array
   const [currentQuestion, setCurrentQuestions] = useState(0);
 
+
+  //To display track of score
+  //Starts off false, to not display score, but the questions which  is wrapped in a tertiary if/else statement
+  //It will be true once we reach the end of the questions, then it will display the question since it is wrapped in a tertiary if/else statement
+  const [showScore, setShowScore] = useState(false);
+
+  //To keep track of score
+  const [score, setScore] = useState(0);
+
   //This function is an onClick event for the answer buttons, when you click an answer, it will move on to the next question
   //change the current question by one, create function
-  const handleAnswerButtonClick = () => {
+  //Need to add if/else statement, for when it reaches the end of array
+  //setShowScore(true): when we reach the end of the question, it will show the score count
+
+  //for isCorrect, only need if statement, no else because we want const nextQuestion to run
+
+  const handleAnswerButtonClick = (isCorrect) => {
+    if(isCorrect === true){
+setScore(score +1);
+    }
+
     const nextQuestion = currentQuestion + 1;
-    setCurrentQuestions(nextQuestion);
+    if (nextQuestion < quizInfo.length) {
+      setCurrentQuestions(nextQuestion);
+    } else {
+setShowScore(true);
+    }
+
   }
 
   // const loadData = () => {
@@ -47,28 +70,36 @@ const QuizQs = () => {
   return (
     <div>
       <h3>This is a Quiz Info placeholder.</h3>
-      <div className="question-section">
 
-        <div className="question-count">
-          Question 1{quizInfo.length}
+      {showScore ? (
+        <div className="score-section">
+          You scored {score} out of {quizInfo.length}
         </div>
+      ) : (
+        <>
+          <div className="question-section">
 
-        <div className="quetion-text">
-          {/* PLACEHOLDER: This where the QUESTION TEXT will go. currentQuestion
+            <div className="question-count">
+              Question {currentQuestion + 1}/{quizInfo.length}
+            </div>
+
+            <div className="quetion-text">
+              {/* PLACEHOLDER: This where the QUESTION TEXT will go. currentQuestion
           replaces the number(0), number is now stored in the useState, making it dynamic  */}
-          {quizInfo[currentQuestion].questionText}
-        </div>
+              {quizInfo[currentQuestion].questionText}
+            </div>
 
-        <div className="answer-section">
-          {/* Since the hardcode data is in the SERVER index.js, I need
+            <div className="answer-section">
+              {/* Since the hardcode data is in the SERVER index.js, I need
           to access it with quizInfo first. This map display the multiple
-          // choice answer options*/}
-          {quizInfo[currentQuestion].answerOptions.map(
-            (answerOptions) => (
-              <button onClick={handleAnswerButtonClick}>{answerOptions.answerText}</button>))}
+          // choice answer options. Need to add function to handleAnswerButtonClick, so that it can process the correct answer on the click*/}
+              {quizInfo[currentQuestion].answerOptions.map(
+                (answerOptions) => (
+                  <button onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)}>{answerOptions.answerText}</button>))}
+            </div>
         </div>
-
-      </div>
+        </>
+      )}
       {/* Below is for the infomration from the API */}
       {/* <p>Question: {quizInfo.results[0].question} </p>
       <p>Response: {quizInfo.results[0].correct_answer}</p> */}
