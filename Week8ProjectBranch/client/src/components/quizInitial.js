@@ -51,15 +51,19 @@ setShowScore(true);
   //     (data) => {
   //       console.log(data);
   //       setQuizInfo(data);
+  //           //data.response on both up and below
+  //         //this means we are directly accessing the infomration on the object, specifically from key response how it it called in the api
   //     }
   //   );
   // };
+  
   const loadData = () => {
     fetch('http://localhost:8080/api/hardcodequizinfo')
       .then((response) => response.json())
       .then(
         (data) => {
           console.log(data);
+
           setQuizInfo(data);
         }
       );
@@ -68,8 +72,6 @@ setShowScore(true);
   useEffect(() => {
     loadData();
   }, []);
-
-
 
 
 

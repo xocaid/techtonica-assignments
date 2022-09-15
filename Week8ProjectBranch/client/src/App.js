@@ -1,12 +1,14 @@
 //FRONTEND
 import './App.css';
-import QuizQs from "./components/quiz";
+// import QuizQs from "./components/quizInitial";
+import QuizActual from "./components/quizActual";
 
 function App() {
   return (
     <div className="App">
       <h1>This is the frontend.</h1>
-      <QuizQs />
+      {/* <QuizQs /> */}
+      <QuizActual />
     </div>
   );
 }
