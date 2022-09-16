@@ -48,23 +48,13 @@ const QuizActual = () => {
   }, []);
 
 
-  const handleScore = (isRight) => {
-
-    if(isRight === questions.correct_answer)
-    {
-      setScore(score +1);
-    }
-    }
-
-
-
   return (
     <div>
       <h2>You scored {score} out of {questions.length}</h2>
       {
         questions.map(
           (question, index) => {
-            return <QuestionCard key={index} question={question} />;
+            return <QuestionCard key={index} question={question} setScore={setScore} />;
           }
         )
       }

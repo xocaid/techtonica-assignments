@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const QuestionCard = ({ question }) => {
+const QuestionCard = ({ question, setScore }) => {
 
   //ansOption is allowing us to change buttons to black, 
   //also when click on correct answer, it prints correct
@@ -20,9 +20,10 @@ const QuestionCard = ({ question }) => {
 
 
   const handleClick = (e) => {
-    if (e.target.value == question.correct_answer)
+    if (e.target.value === question.correct_answer)
       {
       setAnsOption(!ansOption);
+      setScore(s => s+1)
 
     }else{
       e.target.style.backgroundColor = 'black';
