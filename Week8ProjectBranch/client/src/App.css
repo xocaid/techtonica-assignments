@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: grey;
 }
 
 .App-logo {
@@ -32,7 +33,7 @@
 
 .question-section{
   margin: 0 auto;
-  background-color: blue;
+  background-color: navy;
   padding: 16px;
   border-radius: 16px;
   color: yellow;
@@ -43,7 +44,9 @@
   height: auto;
 }
 button{
-  background-color: aqua;
+  color:white;
+  background-color: brown;
+padding: auto;
 }
 @keyframes App-logo-spin {
   from {

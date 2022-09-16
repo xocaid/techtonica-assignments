@@ -30,10 +30,20 @@ const QuizActual = () => {
       .then((response) => response.json())
       .then(
         (data) => {
+
+
+          for(const result of data.results){
+            const answerOptions= [result.incorrect_answers];
+            answerOptions.push(result.correct_answer);
+            result["answerOptions"]=answerOptions.flat()
+            .map(value => ({ value, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(({ value }) => value)
+          }
           console.log(data.results);
+
           setQuestions(data.results);
-          //           //data.response on both up and below
-          //         //this means we are directly accessing the infomration on the object, specifically from key response how it it called in the api
+
         }
       );
   };
@@ -51,19 +61,19 @@ const QuizActual = () => {
     <div >
       {/* <h3>This is a QuizLink Info placeholder.</h3> */}
 
-        {/* Just printing the information for first question on page  */}
-        {/* <p> QUESTION: {quizInfo[0].question}</p>  */}
-        {/* <p>ALL ANSWERS: {allAnswerOptions}</p>  */}
-        {/* <p>CORRECT ANSWER: {correctAnswer}</p> */}
+      {/* Just printing the information for first question on page  */}
+      {/* <p> QUESTION: {quizInfo[0].question}</p>  */}
+      {/* <p>ALL ANSWERS: {allAnswerOptions}</p>  */}
+      {/* <p>CORRECT ANSWER: {correctAnswer}</p> */}
 
 
-        {
-          questions.map(
-            function (question, index) {
+      {
+        questions.map(
+          (question, index) => {
             return <QuestionCard key={index} question={question} />;
           }
-          )
-        }
+        )
+      }
 
 
 
