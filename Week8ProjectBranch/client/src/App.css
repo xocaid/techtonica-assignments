@@ -1,6 +1,13 @@
 .App {
   text-align: center;
+  color: white;
   background-color: grey;
+  background-image: url('https://c4.wallpaperflare.com/wallpaper/532/358/385/light-spectrum-wallpaper-preview.jpg');
+  background-repeat: no-repeat center center fixed;
+}
+
+h1 {
+  font-size: 50px;
 }
 
 .App-logo {
@@ -31,27 +38,37 @@
 
 
 
-.question-section{
-  margin: 0 auto;
-  background-color: navy;
-  padding: 16px;
+.question-section {
+  margin: auto;
+  margin-top: 15px;
+  font-size: 30px;
+  background-image: linear-gradient(to bottom right,rgb(255, 208, 0), rgb(210, 13, 210));
+  padding: 20px;
   border-radius: 16px;
-  color: yellow;
   box-shadow: rgb(50, 50, 93, 0.25) 0px 30px 60px -12px,
-  rgba(0, 0, 0, 3) 0px, 18px 36px -18px;
+    rgba(0, 0, 0, 3) 0px, 18px 36px -18px;
 
   width: 80%;
   height: auto;
 }
-button{
-  color:white;
-  background-color: brown;
-padding: auto;
+
+button {
+  color: white;
+  font-size: 25px;
+  border-color: rgb(207, 10, 95);
+  background-color: rgb(207, 10, 95);
+  margin-top: 10px;
+  margin-left: 15px;
+  padding: auto;
+  border-radius: 12px;
+  cursor: pointer;
 }
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

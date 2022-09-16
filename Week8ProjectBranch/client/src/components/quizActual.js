@@ -4,25 +4,9 @@ import QuestionCard from "./questionCard";
 
 const QuizActual = () => {
   //This is to access the hardcode data from index.js
-  // const [quizInfo, setQuizInfo] = useState([]);
+//setQuestions is accessing the data.results from API and sending it to questions, so we can use it(remember it's data)
   const [questions, setQuestions] = useState([]);
-
-  // const [currentQuestion, setCurrentQuestions] = useState([]);
-
-
-  // const question = quizInfo[0].question;
-
-  // const correctAnswer = quizInfo[0].correct_answer;
-
-  // // Putting the answerOptions into one array
-  // const answerOptions=
-  // [quizInfo[0].incorrect_answers];
-  // answerOptions.push(quizInfo[0].correct_answer);
-
-  // //Flattening the array aka getting rid of the array within the array
-  // const allAnswerOptions = answerOptions.flat();
-
-
+  const [score, setScore] = useState(0);
 
 
   const loadData = () => {
@@ -31,6 +15,17 @@ const QuizActual = () => {
       .then(
         (data) => {
 
+//For Of Loop - Statement loops through the values of iterable data structures, in this case an array
+//Creates a new array of the correct & incorrect answers in one array by using For Or Loop
+//.flat() is flattening the array, originally returned a new variable with the [correct answer] array within [incorrect answer] array
+//Flat does the following: [a,b,c[d] --> [a,b,c,d]
+//Randomize: .map,.sort.map, randomizes the answerOptions so that the correct answer is not appearing last every time thanks to .push()
+//(1).map puts each element of the array in an object and gives it a random sort key
+//(2).sort - sorts using the random key
+//(3).map - unmaps to get the original objects
+//Time complexity: O(N log N); Space complexity: O(N); shorter & more functional for short arrays
+//Add For Of Loop here because: we FETCH API data, TRANSFORM it, and FORWARD/PASS IT ON to be used in our code
+//data.results now has the answerOptions created in the API, so we can access it
 
           for(const result of data.results){
             const answerOptions= [result.incorrect_answers];
@@ -53,20 +48,19 @@ const QuizActual = () => {
   }, []);
 
 
+  const handleScore = (isRight) => {
 
+    if(isRight === questions.correct_answer)
+    {
+      setScore(score +1);
+    }
+    }
 
 
 
   return (
-    <div >
-      {/* <h3>This is a QuizLink Info placeholder.</h3> */}
-
-      {/* Just printing the information for first question on page  */}
-      {/* <p> QUESTION: {quizInfo[0].question}</p>  */}
-      {/* <p>ALL ANSWERS: {allAnswerOptions}</p>  */}
-      {/* <p>CORRECT ANSWER: {correctAnswer}</p> */}
-
-
+    <div>
+      <h2>You scored {score} out of {questions.length}</h2>
       {
         questions.map(
           (question, index) => {
@@ -74,17 +68,6 @@ const QuizActual = () => {
           }
         )
       }
-
-
-
-
-      {/* <div className="question-answers">
-      {allAnswerOptions.map(
-        (answerOption, index) => (
-        <button index={index}>{answerOption}</button>
-      ))}
-
-      </div> */}
 
     </div>
   )
