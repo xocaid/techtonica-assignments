@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 
 // Api being received from the API
 app.get('/api/quizinfo', async(req, res) => {
-  const URL = `https://opentdb.com/api.php?amount=4&category=22&difficulty=easy&type=multiple`;
+  const URL = `https://opentdb.com/api.php?amount=6&category=22&difficulty=easy&type=multiple`;
   try {
     const response = await fetch(URL);
     const data = await response.json();

@@ -20,7 +20,7 @@ const QuestionCard = ({ question, setScore }) => {
 
 
   const handleClick = (e) => {
-    if (e.target.value === question.correct_answer)
+    if (e.target.value === decodeHtml(question.correct_answer))
       {
       setAnsOption(!ansOption);
       setScore(s => s+1)
@@ -48,7 +48,7 @@ return (
         question.answerOptions.map(
           (answer, index) => {
             return (
-              <button key={index} value={answer} onClick={handleClick}>{answer}</button>
+              <button key={index} value={decodeHtml(answer)} onClick={handleClick}>{decodeHtml(answer)}</button>
             )
           }
         )

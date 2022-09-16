@@ -2,6 +2,7 @@
 import './App.css';
 // import QuizQs from "./components/quizInitial";
 import QuizActual from "./components/quizActual";
+import QuestionReset from "./components/questionReset"
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <p>Welcome to this mini quiz!</p>
       {/* <QuizQs /> */}
       <QuizActual />
+    <QuestionReset />
     </div>
   );
 }

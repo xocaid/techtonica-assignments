@@ -1,13 +1,16 @@
 .App {
   text-align: center;
   color: white;
-  background-color: grey;
+  background-color: black;
   background-image: url('https://c4.wallpaperflare.com/wallpaper/532/358/385/light-spectrum-wallpaper-preview.jpg');
   background-repeat: no-repeat center center fixed;
 }
 
+/* Margin & padding make it so the whole page is full in color */
 h1 {
   font-size: 50px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .App-logo {
@@ -40,9 +43,9 @@ h1 {
 
 .question-section {
   margin: auto;
-  margin-top: 15px;
+  margin-top: 20px;
   font-size: 30px;
-  background-image: linear-gradient(to bottom right,rgb(255, 208, 0), rgb(210, 13, 210));
+  background-image: linear-gradient(to bottom right, rgb(255, 208, 0), rgb(210, 13, 210));
   padding: 20px;
   border-radius: 16px;
   box-shadow: rgb(50, 50, 93, 0.25) 0px 30px 60px -12px,
