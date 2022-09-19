@@ -1,4 +1,5 @@
 import  { useState } from "react";
+const DeleteUser = ({deleteUser}) => {
 const [userId, setUserId] = useState("");
 
 const handleSubmit  = (e) =>{
@@ -6,11 +7,10 @@ const handleSubmit  = (e) =>{
   deleteUser(userId);
 };
 
-const DeleteUser = ({deleteUser}) =>{
   return(
     <div>
     <h3>Delete User</h3>
-    <form id="delete-user" action="#">
+    <form id="delete-user" action="#" onSubmit={handleSubmit}>
       <fieldset>
         <label>User ID</label>
         <input 
@@ -25,4 +25,5 @@ const DeleteUser = ({deleteUser}) =>{
   </div>
   )
 }
+
 export default DeleteUser;
