@@ -1,48 +1,17 @@
-import calendar from "./calendar.png";
+//App.js code was copied from starter code as per instructions
+import Header from "./components/header";
+import Users from "./components/users";
+import Footer from "./components/footer";
+
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <img src={calendar} alt="Calendar Star Logo" />
-        <h1>Eventonica</h1>
-      </header>
+      <Header />
 
       <main>
         <div className="user-and-events">
-          <section className="user-management">
-            <h2>User Management</h2>
-
-            <ul id="users-list">
-              {/* display all existing Users here */}
-              <li>...</li>
-            </ul>
-
-            <div>
-              <h3>Add User</h3>
-              <form id="add-user" action="#">
-                <fieldset>
-                  <label>Name</label>
-                  <input type="text" id="add-user-name" />
-                </fieldset>
-                {/* Add more form fields here */}
-                <input type="submit" value="Add" />
-              </form>
-            </div>
-
-            <div>
-              <h3>Delete User</h3>
-              <form id="delete-user" action="#">
-                <fieldset>
-                  <label>User ID</label>
-                  <input type="text" id="delete-user-id" />
-                </fieldset>
-                <input type="submit" />
-              </form>
-            </div>
-          </section>
-
           <section className="event-management">
             <h2>Event Management</h2>
             <div>
@@ -79,38 +48,9 @@ function App() {
             <input type="submit" />
           </form>
         </div>
-
-        <aside className="search-toolbar">
-          <div>
-            <h3>Find Events</h3>
-            <form id="search" action="#">
-              <fieldset>
-                <label htmlFor="date-search">Date</label>
-                <input type="text" id="date-search" placeholder="YYYY-MM-DD" />
-              </fieldset>
-              <fieldset>
-                <label htmlFor="category-search">Category</label>
-                <input type="text" id="category-search" />
-              </fieldset>
-
-              <input type="submit" value="Search" />
-            </form>
-          </div>
-        </aside>
       </main>
 
-      <footer>
-        <div>
-          Star Calendar favicon made by
-          <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
-            Freepik
-          </a>
-          Find your own on
-          <a href="https://www.flaticon.com/" title="Flaticon">
-            FlatIcon.com
-          </a>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
