@@ -99,9 +99,6 @@ setShowScore(true);
         </div>
         </>
       )}
-      {/* Below is for the infomration from the API */}
-      {/* <p>Question: {quizInfo.results[0].question} </p>
-      <p>Response: {quizInfo.results[0].correct_answer}</p> */}
     </div>
   )
 }

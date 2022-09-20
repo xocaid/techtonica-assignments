@@ -18,7 +18,7 @@ const QuizActual = () => {
 //For Of Loop - Statement loops through the values of iterable data structures, in this case an array
 //Creates a new array of the correct & incorrect answers in one array by using For Or Loop
 //.flat() is flattening the array, originally returned a new variable with the [correct answer] array within [incorrect answer] array
-//Flat does the following: [a,b,c[d] --> [a,b,c,d]
+//Flat does the following: [a,b,c[d]] --> [a,b,c,d]
 //Randomize: .map,.sort.map, randomizes the answerOptions so that the correct answer is not appearing last every time thanks to .push()
 //(1).map puts each element of the array in an object and gives it a random sort key
 //(2).sort - sorts using the random key

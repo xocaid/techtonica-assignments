@@ -21,3 +21,5 @@ The intent of the project was to create a simple weather application with React.
 
 <p>OPTIONAL:
 <li> Search Bar
+
+NOTES

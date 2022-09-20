@@ -1,28 +1,38 @@
-import  { useState } from "react";
-const DeleteUser = ({deleteUser}) => {
-const [userId, setUserId] = useState("");
+import { useState } from "react";
+//deleteUser is the props here
+const DeleteUser = ({ deleteUser }) => {
+  //useState for deleteId/setDeleteId to 
+  const [deleteId, setDeleteId] = useState("");
 
-const handleSubmit  = (e) =>{
-  e.preventDefault();
-  deleteUser(userId);
-};
+  const handleDelete = (e) => {
+    e.preventDefault();
+    //Calls the useState deleteId/setDeleteId
+    //deleteUser is the props
+    deleteUser(deleteId);
+    //added to reset text field to empty string
+    setDeleteId("");
+  };
 
-  return(
+  return (
     <div>
-    <h3>Delete User</h3>
-    <form id="delete-user" action="#" onSubmit={handleSubmit}>
-      <fieldset>
-        <label>User ID</label>
-        <input 
-        type="text" 
-        id="delete-user-id"
-        value = {userId}
-        onChange={(e) => setUserId(e.target.value)}
-        />
-      </fieldset>
-      <input type="submit" />
-    </form>
-  </div>
+      <h3>Delete User</h3>
+      <form id="delete-user" action="#" onSubmit={handleDelete}>
+        <fieldset>
+
+          {/* Deletes the user by ID */}
+          <label>User ID: </label>
+
+          <input
+            type="text"
+            id="delete-user-id"
+            value={deleteId}
+            onChange={(e) => setDeleteId(e.target.value)}
+          />
+
+        </fieldset>
+        <input type="submit" value="Delete User" />
+      </form>
+    </div>
   )
 }
 

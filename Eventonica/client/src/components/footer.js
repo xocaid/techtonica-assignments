@@ -1,3 +1,6 @@
+//Component created as per instructions
+//Code was originally in App.js
+
 const Footer = () => {
   return (
     <footer>

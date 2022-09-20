@@ -7,7 +7,12 @@
   padding: 20px;
   font-size: 23px;
 }
-
+div{
+  border-radius: 25px;
+  border: solid 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

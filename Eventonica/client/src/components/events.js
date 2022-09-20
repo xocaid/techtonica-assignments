@@ -65,7 +65,7 @@ const Events = () => {
                 Name: {event.name}, Description: {event.description}
               </li>
             );
-          })};
+          })}
         </ul>
 
         <h3>Add Event</h3>
@@ -88,7 +88,7 @@ const Events = () => {
                   />
                 </label>
               );
-            })};
+            })}
           </fieldset>
           <input type="submit" />
         </form>

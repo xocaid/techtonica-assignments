@@ -33,7 +33,7 @@ const OaxWeat = () => {
 
         <img src={'http://openweathermap.org/img/wn/03n@2x.png'} alt="cloudy" />
         <p><b>City:</b> {oaxWeat[0].name}</p>
-        <p><b>Description: </b> {oaxWeat[0].weather.description}</p> 
+        <p><b>Description: </b> {oaxWeat[0].weather[0].description}</p> 
         <p><b>Temperature: </b> {oaxWeat[0].main.temp}</p>
         <p><b>Max Temp: </b> {oaxWeat[0].main.temp_max}</p>
         <p><b>Min Temp: </b> {oaxWeat[0].main.temp_min}</p>

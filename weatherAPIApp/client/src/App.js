@@ -9,9 +9,13 @@ function App() {
   return (
     <div className="App">
       <h1>Weather App</h1>
-      <Weather />
-      <OaxWeat />
-
+      <h4>For your most up to date weather!</h4>
+      <div className='LondonWeather'>
+        <Weather />
+      </div>
+      <div className='OaxacaWeather'>
+        <OaxWeat />
+      </div>
     </div>
   );
 }
