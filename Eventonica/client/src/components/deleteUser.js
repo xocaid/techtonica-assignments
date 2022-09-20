@@ -1,5 +1,8 @@
+//DeleteUser Component was originally on App.js
+
 import { useState } from "react";
 //deleteUser is the props here
+//passes the function const deleteUser on user.js as a prop
 const DeleteUser = ({ deleteUser }) => {
   //useState for deleteId/setDeleteId to 
   const [deleteId, setDeleteId] = useState("");
