@@ -1,4 +1,4 @@
-import { useState, useReducer } from "react";
+import { useState, useReducer, useEffect } from "react";
 //useReducer helps manage complex state logic in React; stores & updates state like useState
 //Accepts a reducer function as its 1st parameter & initial state as 2nd
 //Returns an array that holds current value & dispatch fx to which you can pass an action and later invoke it
@@ -56,6 +56,17 @@ const reducer = (state, action) => {
 };
 
 const Events = () => {
+  //Added as per instructions
+  const getEvents = async () => {
+    const response = await fetch('http://localhost:4000/events');
+    const event = await response.json();
+    setEvents(event);
+  };
+  //Added as per instructions
+  useEffect(() => {
+    getEvents();
+  }, []);
+
   const [events, setEvents] = useState([event1, event2, event3]);
 
   //const initialState is associated with useReducer below(const [state, dispatch = useReducer(reducer, initialState)])
@@ -75,6 +86,23 @@ const Events = () => {
     console.log(state);
     setEvents([...events, state]);
   };
+  
+//Added as per instructions
+  const handleAddNewEvent = async (e) => {
+    e.preventDefault();
+    const newEvent = { id:"", name: "", description: "" };
+    const rawResponse = await fetch('http://localhost:4000/events', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newEvent)
+    });
+    const content = await rawResponse.json();
+    setEvents([...events, content]);
+  };
+
   return (
 
     <section className="event-management">

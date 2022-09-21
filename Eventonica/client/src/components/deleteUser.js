@@ -6,6 +6,8 @@ const DeleteUser = ({ deleteUserCallback }) => {
   //useState for deleteId/setDeleteId to grab user Id information for delete user you want to delete
   const [deleteId, setDeleteId] = useState("");
 
+  
+
   const handleDelete = (e) => {
     e.preventDefault();
     //Grabs the inserted ID value by client

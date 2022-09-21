@@ -21,13 +21,16 @@ router.get('/', async function (req, res, next) {
 router.post('/', async (req, res) => {
   const events = {
     name: req.body.name,
-    email: req.body.description
+    description: req.body.description,
+    category: req.body.category,
+    date: req.body.date
+
   };
   console.log(events);
   try {
     const createdevents = await db.one(
       'INSERT INTO events(name, email) VALUES($1, $2) RETURNING *',
-      [events.name, events.description]
+      [events.name, events.description, events.category, events.date]
     );
     console.log(createdEvents);
     res.send(createdEvents);

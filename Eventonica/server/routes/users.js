@@ -19,6 +19,8 @@ router.get('/', async function (req, res, next) {
 /* Add users listing. */
 
 router.post('/', async (req, res) => {
+  
+
   const user = {
     name: req.body.name,
     email: req.body.email

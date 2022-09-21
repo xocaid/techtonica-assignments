@@ -1,7 +1,7 @@
 //User Component was  originally on App.js
 //Created separate component as per instructions
 
-import { useState } from "react";
+import { useState, useEffect  } from "react";
 //Calling DeleteUser from the DeleteUser component
 import DeleteUser from "./deleteUser";
 
@@ -10,7 +10,21 @@ const marlin = { name: "Marlin", email: "marlin@gmail.com", id: "1" };
 const nemo = { name: "Nemo", email: "nemo@gmail.com", id: "2" };
 const dory = { name: "Dory", email: "dory@gmail.com", id: "3" };
 
+
+
 const Users = () => {
+  //added as per instructions
+  const getUsers = async () => {
+    const response = await fetch('http://localhost:4000/users');
+    const user = await response.json();
+    setUsers(user);
+  };
+  //added as per instructions
+  useEffect(() => {
+    getUsers();
+  }, []);
+
+  
   //useState for user/setUsers added as per instructions
   //The default state will display: marlin, nemo, & dory
   //users/setUsers will refer to the mock users & tack on the newUser at the end of the list
@@ -52,6 +66,40 @@ const Users = () => {
     //Reset the input fields to empty string on submit
     setNewUser({ name: "", email: "", id: "" });
     //Longer version: setName(""); setId(""); setEmail("");
+  };
+//Added as per instructions
+  const handleAddNewUser = async (e) => {
+    e.preventDefault();
+    const newUser = { id:"", name: "", email:"" };
+  
+    const rawResponse = await fetch('http://localhost:4000/users', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newUser)
+    });
+    const content = await rawResponse.json();
+  
+    setUsers([...users, content]);
+  };
+//From instructions
+  const handleDeleteUser = async (e) => {
+    e.preventDefault();
+    const newUser = { id: "", name: "", email: "" };
+  
+    const rawResponse = await fetch('http://localhost:4000/users', {
+      method: 'DELETE',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newUser)
+    });
+    const content = await rawResponse.json();
+  
+    setUsers([...users, content]);
   };
 
   //Deletes user logged from users/setUsers
