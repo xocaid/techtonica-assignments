@@ -22,8 +22,8 @@ const Users = () => {
   /*  
   newUser/setNewUser can be broken down more to: 
     const [name, setName] = useState(""); {setName};
-    const [is. setId] = useState("");
-    const [email, setEmail] = useState("");
+    const [id, setId] = useState(""); {setId}
+    const [email, setEmail] = useState(""); {setEmail}
     Calling as {set("name")}, {set("email")}, {set("id")}, this is a shorter, condensed version
     */
 
@@ -74,7 +74,9 @@ const Users = () => {
         {users.map((user, index) => {
           return (
             <li key={index}>
-              Name: {user.name}, Email: {user.email}, ID#: {user.id}
+              Name: {user.name},  <br />
+              Email: {user.email},  <br />
+              ID#: {user.id}
             </li>
           );
         })}

@@ -57,6 +57,9 @@ const reducer = (state, action) => {
 
 const Events = () => {
   const [events, setEvents] = useState([event1, event2, event3]);
+
+  //const initialState is associated with useReducer below(const [state, dispatch = useReducer(reducer, initialState)])
+  //initialState needs to be declared for useReducer
   const initialState = {
     id: "",
     name: "",
@@ -96,10 +99,15 @@ const Events = () => {
 
             <label>ID: </label>
             <input
-              type="id"
+              type="text"
               id="editId"
               placeholder="Event ID"
               value={state.id}
+              //Dispatch fx: dispatches an Action Object; when you update the state, call dispatch fx with Action Object
+              //State is update by eventHandler or completing fetch request
+              //dispatch(actionObject)
+              // Action Object: property type, string describing what kind of state update reducer must do, in this case editId
+              //Payload is useful information to be used by reducer and associated with Action Object
               onChange={(e) =>
                 dispatch({
                   type: "editId",
@@ -111,7 +119,7 @@ const Events = () => {
 
             <label>Date: </label>
             <input
-              type="date"
+              type="text"
               id="editDate"
               value={state.date}
               onChange={(e) =>
@@ -125,7 +133,7 @@ const Events = () => {
 
             <label>Event Name: </label>
             <input
-              type="name"
+              type="text"
               id="editName"
               placeholder="Event Name"
               value={state.name}
@@ -140,7 +148,7 @@ const Events = () => {
 
             <label>Description: </label>
             <input
-              type="description"
+              type="text"
               id="editDescription"
               placeholder="Event Description"
               value={state.description}
@@ -155,7 +163,7 @@ const Events = () => {
 
             <label>Category: </label>
             <input
-              type="category"
+              type="text"
               id="editCategory"
               placeholder="Event Category"
               value={state.category}
@@ -186,3 +194,17 @@ const Events = () => {
   )
 }
 export default Events;
+
+//*******NOTES ON USEREDUCER********
+/*useReducer(reducer, initialState) HOOK accepts 2 arguments: reducer fx & initial state.
+Hook returns an array of 2 items [currentState, dispatch fx](ex: [state, dispatch]).
+Initial State: value the state is initialized with(ex: Counter: 0,  initialState is 0)
+Action Object: object that describes how to updated the state(ex: dispatch({type: 'editCategory' or 'add/increase'})).
+  Has a property type, what kind of state update reducer will do & has to carry info(PAYLOAD) to be used by reducer.
+Dispatch fx:  special fx  that dispatches an action object, created by useReducer() hook:
+const [state, dispatch]  = useReducer(reducer, initialState); When  you want to update the state(eventHandler/Fetch request)
+call dispatch fx with an action object
+Reducer: PURE fx, 2 parameters: current state & action object
+Reducer fx must update the state immutably and return new state. Doesn't modify current state (state), created new state object stored in newState
+Process: eventHandler --> Dispatch fx (w/ action object) (React redirects action object & state to  reducer fx)-->Reducer fx uses action object & does state update, returning new state --> React checks if new state differs from old/current/initial state, if updated, rerenders component and userReducer() returns new state value [newState, ...] = useReducer(...)
+*/

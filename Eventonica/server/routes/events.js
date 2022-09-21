@@ -1,4 +1,5 @@
 // server/routes/ events.mjs;
+//This code comes directly from the instructions, swapped user with events, added router to index.js
 import express from "express"; 
 import db from "../db/db-connection.js";
 
