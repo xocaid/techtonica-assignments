@@ -1,17 +1,15 @@
 //DeleteUser Component was originally on App.js
 
 import { useState } from "react";
-//deleteUser is the props here
-//passes the function const deleteUser on user.js as a prop
-const DeleteUser = ({ deleteUser }) => {
-  //useState for deleteId/setDeleteId to 
+//deleteUserCallback is a props to pass information to the parent
+const DeleteUser = ({ deleteUserCallback }) => {
+  //useState for deleteId/setDeleteId to grab user Id information for delete user you want to delete
   const [deleteId, setDeleteId] = useState("");
 
   const handleDelete = (e) => {
     e.preventDefault();
-    //Calls the useState deleteId/setDeleteId
-    //deleteUser is the props
-    deleteUser(deleteId);
+    //Grabs the inserted ID value by client
+    deleteUserCallback(deleteId);
     //added to reset text field to empty string
     setDeleteId("");
   };

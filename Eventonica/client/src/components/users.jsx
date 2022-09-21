@@ -56,9 +56,12 @@ const Users = () => {
 
   //Deletes user logged from users/setUsers
   //This portion comes from the instructions
-  const deleteUser = (deleteId) => {
-    const newUser = users.filter((i) => i.id !== deleteId);
-    setUsers(newUser);
+  //diff from line 50
+  //filter to exclude delete, setUsers called to use new list
+  //This function is triggered with the callback when submit is clicked
+  const deleteUserFunction = (deleteIdFromUsers) => {
+    const filteredUsers = users.filter((i) => i.id !== deleteIdFromUsers);
+    setUsers(filteredUsers);
   };
 
   return (
@@ -125,10 +128,11 @@ const Users = () => {
           <input type="submit" value="Add User" />
         </form>
       </div>
-{/* DeleteUser Component added to Users Component. deleteUser would be the
-props in this situation to use the callback function */}
+{/* DeleteUser Component added to Users Component. 
+deleteUserCallback (is the props) & associated with the deleteUserFunction. This connects
+both components together*/}
 
-      <DeleteUser deleteUser={deleteUser} />
+      <DeleteUser deleteUserCallback={deleteUserFunction} />
 
     </section>
   );
