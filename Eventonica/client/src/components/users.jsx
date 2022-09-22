@@ -1,7 +1,7 @@
 //User Component was  originally on App.js
 //Created separate component as per instructions
 
-import { useState, useEffect  } from "react";
+import { useState, useEffect } from "react";
 //Calling DeleteUser from the DeleteUser component
 import DeleteUser from "./deleteUser";
 
@@ -24,7 +24,7 @@ const Users = () => {
     getUsers();
   }, []);
 
-  
+
   //useState for user/setUsers added as per instructions
   //The default state will display: marlin, nemo, & dory
   //users/setUsers will refer to the mock users & tack on the newUser at the end of the list
@@ -67,12 +67,12 @@ const Users = () => {
     setNewUser({ name: "", email: "", id: "" });
     //Longer version: setName(""); setId(""); setEmail("");
   };
-//Add New User Handler Event
-//Added as per instructions
+
+  //Add New User Handler Event
+  //Added as per instructions
   const handleAddNewUser = async (e) => {
     e.preventDefault();
     //const newUser = { id, name, email};
-  
     const response = await fetch('http://localhost:4000/users', {
       method: 'POST',
       headers: {
@@ -82,37 +82,28 @@ const Users = () => {
       body: JSON.stringify(newUser)
     });
     const content = await response.json();
-  
     setUsers([...users, content]);
     setNewUser({ name: "", email: "", id: "" });
   };
-//From instructions
-  const handleDeleteUser = async (e) => {
-    e.preventDefault();
-    const newUser = { id: "", name: "", email: "" };
-  
-    const rawResponse = await fetch('http://localhost:4000/users', {
+
+  //Added as per instructions
+  //Delete User Event Handler
+  const handleDeleteUser = async (deleteUserCallback) => {
+    const response = await fetch(`http://localhost:4000/users/${deleteUserCallback}`, {
       method: 'DELETE',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newUser)
-    });
-    const content = await rawResponse.json();
-  
-    setUsers([...users, content]);
-  };
+    })
+    await response.json();
+    const deleteUserFunction = users.filter((i) => i.id !== deleteUserCallback);
+      setUsers(deleteUserFunction);
+    };
+
 
   //Deletes user logged from users/setUsers
   //This portion comes from the instructions
   //diff from line 50
   //filter to exclude delete, setUsers called to use new list
   //This function is triggered with the callback when submit is clicked
-  const deleteUserFunction = (deleteIdFromUsers) => {
-    const filteredUsers = users.filter((i) => i.id !== deleteIdFromUsers);
-    setUsers(filteredUsers);
-  };
+
 
   return (
     <section className="user-management">
@@ -130,6 +121,7 @@ const Users = () => {
               Name: {user.name},  <br />
               Email: {user.email},  <br />
               ID#: {user.id}
+              <button onClick={() => handleDeleteUser(user.id)}>Delete User</button>
             </li>
           );
         })}
@@ -178,11 +170,11 @@ const Users = () => {
           <input type="submit" value="Add User" />
         </form>
       </div>
-{/* DeleteUser Component added to Users Component. 
+      {/* DeleteUser Component added to Users Component. 
 deleteUserCallback (is the props) & associated with the deleteUserFunction. This connects
 both components together*/}
 
-      <DeleteUser deleteUserCallback={deleteUserFunction} />
+      <DeleteUser handleDeleteUser ={handleDeleteUser} />
 
     </section>
   );
