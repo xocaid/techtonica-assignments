@@ -60,7 +60,7 @@ const Events = () => {
   //Added as per instructions
   const getEvents = async () => {
     const response = await fetch('http://localhost:4000/events');
-    const event = await response.json();
+    const events = await response.json();
     setEvents(events);
   };
   
