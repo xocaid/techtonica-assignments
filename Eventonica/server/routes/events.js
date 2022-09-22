@@ -20,6 +20,7 @@ router.get('/', async function (req, res, next) {
 
 router.post('/', async (req, res) => {
   const events = {
+    id: req.body.id,
     name: req.body.name,
     description: req.body.description,
     category: req.body.category,
@@ -28,9 +29,9 @@ router.post('/', async (req, res) => {
   };
   console.log(events);
   try {
-    const createdevents = await db.one(
-      'INSERT INTO events(name, email) VALUES($1, $2) RETURNING *',
-      [events.name, events.description, events.category, events.date]
+    const createdEvents = await db.one(
+      'INSERT INTO events(id, name, description, category, date) VALUES($1, $2, $3, $4, $5) RETURNING *',
+      [events.id, events.name, events.description, events.category, events.date]
     );
     console.log(createdEvents);
     res.send(createdEvents);

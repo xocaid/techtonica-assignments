@@ -60,7 +60,7 @@ const Events = () => {
   const getEvents = async () => {
     const response = await fetch('http://localhost:4000/events');
     const event = await response.json();
-    setEvents(event);
+    setEvents(events);
   };
   //Added as per instructions
   useEffect(() => {
@@ -86,12 +86,18 @@ const Events = () => {
     console.log(state);
     setEvents([...events, state]);
   };
-  
-//Added as per instructions
+
+  //Added as per instructions
   const handleAddNewEvent = async (e) => {
     e.preventDefault();
-    const newEvent = { id:"", name: "", description: "" };
-    const rawResponse = await fetch('http://localhost:4000/events', {
+    const newEvent = {
+      id: state.id,
+      name: state.name,
+      description: state.description,
+      category: state.category,
+      date: state.date
+    };
+    const response = await fetch('http://localhost:4000/events', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -99,7 +105,7 @@ const Events = () => {
       },
       body: JSON.stringify(newEvent)
     });
-    const content = await rawResponse.json();
+    const content = await response.json();
     setEvents([...events, content]);
   };
 
@@ -114,15 +120,19 @@ const Events = () => {
           {events.map((event, index) => {
             return (
               <li key={index}>
+                ID: {event.id}, <br />
+                Date: {event.date}, <br />
                 Name: {event.name}, <br />
-                Description: {event.description}
+                Description: {event.description}, <br />
+                Category: {event.category}
+
               </li>
             );
           })}
         </ul>
 
         <h3>Add Event</h3>
-        <form id="add-event" action="#" onSubmit={handleSubmit}>
+        <form id="add-event" action="#" onSubmit={handleAddNewEvent}>
           <fieldset>
 
             <label>ID: </label>

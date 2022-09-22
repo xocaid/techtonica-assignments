@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-
+//Added bodyParser to use with out user/events.js
 import userRouter from "./routes/users.js"
 import eventsRouter from "./routes/events.js"
 

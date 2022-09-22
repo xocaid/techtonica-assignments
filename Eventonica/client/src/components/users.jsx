@@ -67,12 +67,13 @@ const Users = () => {
     setNewUser({ name: "", email: "", id: "" });
     //Longer version: setName(""); setId(""); setEmail("");
   };
+//Add New User Handler Event
 //Added as per instructions
   const handleAddNewUser = async (e) => {
     e.preventDefault();
-    const newUser = { id:"", name: "", email:"" };
+    //const newUser = { id, name, email};
   
-    const rawResponse = await fetch('http://localhost:4000/users', {
+    const response = await fetch('http://localhost:4000/users', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -80,9 +81,10 @@ const Users = () => {
       },
       body: JSON.stringify(newUser)
     });
-    const content = await rawResponse.json();
+    const content = await response.json();
   
     setUsers([...users, content]);
+    setNewUser({ name: "", email: "", id: "" });
   };
 //From instructions
   const handleDeleteUser = async (e) => {
@@ -140,7 +142,7 @@ const Users = () => {
         it just registers it*/}
         <h3>Add User</h3>
 
-        <form id="add-user" action="#" onSubmit={handleSubmit}>
+        <form id="add-user" action="#" onSubmit={handleAddNewUser}>
           <fieldset>
 
             <label>Name: </label>
