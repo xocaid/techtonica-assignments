@@ -56,36 +56,37 @@ const reducer = (state, action) => {
 };
 
 const Events = () => {
+  const [events, setEvents] = useState([]);
   //Added as per instructions
   const getEvents = async () => {
     const response = await fetch('http://localhost:4000/events');
     const event = await response.json();
     setEvents(events);
   };
+  
   //Added as per instructions
   useEffect(() => {
     getEvents();
   }, []);
 
-  const [events, setEvents] = useState([event1, event2, event3]);
 
   //const initialState is associated with useReducer below(const [state, dispatch = useReducer(reducer, initialState)])
   //initialState needs to be declared for useReducer
   const initialState = {
     id: "",
-    name: "",
-    descritpion: "",
-    category: "",
     date: null,
+    description: "",
+    category: "",
+    name: "",
   };
   //Added as per instructions
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(state);
-    setEvents([...events, state]);
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(state);
+  //   setEvents([...events, state]);
+  // };
 
   //Added as per instructions
   const handleAddNewEvent = async (e) => {
@@ -97,6 +98,7 @@ const Events = () => {
       category: state.category,
       date: state.date
     };
+    
     const response = await fetch('http://localhost:4000/events', {
       method: 'POST',
       headers: {
