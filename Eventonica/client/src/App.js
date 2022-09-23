@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       {/* Imported Header componenet to call in App.js */}
       <Header />
-
+      <h1>This is a calendar</h1>
       <main>
         <div className="user-and-events">
           <Users />
