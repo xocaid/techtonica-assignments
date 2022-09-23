@@ -108,8 +108,8 @@ const Users = () => {
         {users.map((user, index) => {
           return (
             <li key={index}>
-              Name: {user.name},  <br />
-              Email: {user.email},  <br />
+              Name: {user.name}  <br />
+              Email: {user.email}  <br />
               ID#: {user.id} <br />
               <button onClick={() => handleDeleteUser(user.id)}>Delete User</button>
             </li>
@@ -146,14 +146,14 @@ const Users = () => {
             />
             <br />
 
-            <label>User Id: </label>
+            {/* <label>User Id: </label>
             <input
               type="text"
               id="add-user-id"
               name="name"
               value={newUser.id}//changes the id; long version value={id}
               onChange={set("id")} //handleChange function
-            />
+            /> */}
           </fieldset>
           {/* Add more form fields here */}
           {/*Button for SUBMIT BUTTON, value can be named anything*/}

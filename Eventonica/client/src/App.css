@@ -94,6 +94,10 @@ label {
 }
 aside {
   margin-left: 2em;
+  background-color: rgb(111, 3, 111, 0.9);
+  padding-left: 10px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 footer {

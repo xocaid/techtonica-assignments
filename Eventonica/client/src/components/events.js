@@ -52,6 +52,14 @@ const reducer = (state, action) => {
     case 'editCategory':
       return { ...state, category: action.payload };
 
+    case 'clearForm':
+      return{    
+      id: "",
+      date: "",
+      description: "",
+      category: "",
+      name: ""};
+
     default:
       return state;
   }
@@ -103,6 +111,7 @@ const Events = () => {
     });
     const content = await response.json();
     setEvents([...events, content]);
+    dispatch({type:'clearForm'})
   };
 
 //DELETE EVENT  - EVENT HANDLER
@@ -126,10 +135,10 @@ const Events = () => {
           {events.map((event, index) => {
             return (
               <li key={index}>
-                ID: {event.id}, <br />
-                Date: {event.date}, <br />
-                Name: {event.name}, <br />
-                Description: {event.description}, <br />
+                ID: {event.id} <br />
+                Date: {event.date} <br />
+                Name: {event.name} <br />
+                Description: {event.description} <br />
                 Category: {event.category}<br />
                 <button onClick={() => handleDeleteEvent(event.id)}>Delete Event</button>
               </li>
