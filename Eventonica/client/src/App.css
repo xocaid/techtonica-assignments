@@ -36,7 +36,7 @@ body{
   padding-left: 5px;
   padding-bottom: 5px;
   margin-bottom: 10px;
-    padding-right: 10px;
+  padding-right: 10px;
 }
 
 /* Search Events */
@@ -48,15 +48,17 @@ body{
   padding-right: 500px;
   padding-left: 10px;
   border: solid rgb(111, 3, 111) 3px;
-  padding-right: 10px;
+  padding-right: 500px;
 }
 
 .addeventdiv{
-  background-color: yellow;
-  border: solid black 5px;
+  border: solid rgb(244, 244, 244) 3px;
   margin-top: 15px;
-  margin-left: 60px;
-  padding-right: 600px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  padding-right: 10px;
+  padding-right: 100px;
 }
 
 /* Events */
@@ -74,11 +76,15 @@ main {
 }
 /* Add & Delete Buttons */
 button{
-  background-color: green;
+  background-color: rgba(255, 159, 255);
+  border: rgba(255, 159, 255);
+  border-radius: 5px;
 }
 /* Submit Button */
 input[type=submit]{
-  background-color: red;
+  background-color: rgba(255, 159, 255);
+  border: rgba(255, 159, 255);
+  border-radius: 5px;
 }
 /* Input Labels - Alignment */
 label {
