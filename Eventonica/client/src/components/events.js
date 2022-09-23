@@ -1,5 +1,6 @@
 import { useState, useReducer, useEffect } from "react";
 import DeleteEvent from "./deleteEvent";
+
 //useReducer helps manage complex state logic in React; stores & updates state like useState
 //Accepts a reducer function as its 1st parameter & initial state as 2nd
 //Returns an array that holds current value & dispatch fx to which you can pass an action and later invoke it
@@ -58,18 +59,16 @@ const reducer = (state, action) => {
 
 const Events = () => {
   const [events, setEvents] = useState([]);
-  //Added as per instructions
+
   const getEvents = async () => {
     const response = await fetch('http://localhost:4000/events');
     const events = await response.json();
     setEvents(events);
   };
   
-  //Added as per instructions
   useEffect(() => {
     getEvents();
   }, []);
-
 
   //const initialState is associated with useReducer below(const [state, dispatch = useReducer(reducer, initialState)])
   //initialState needs to be declared for useReducer
@@ -80,16 +79,10 @@ const Events = () => {
     category: "",
     name: "",
   };
-  //Added as per instructions
+
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(state);
-  //   setEvents([...events, state]);
-  // };
-
-  //Added as per instructions
+//ADD NEW EVENT  - EVENT HANDLER
   const handleAddNewEvent = async (e) => {
     e.preventDefault();
     const newEvent = {
@@ -112,6 +105,7 @@ const Events = () => {
     setEvents([...events, content]);
   };
 
+//DELETE EVENT  - EVENT HANDLER
   const handleDeleteEvent = async(deleteEventCallback) => {
     const response = await fetch(`http://localhost:4000/events/${deleteEventCallback}`, {
       method: 'DELETE',
@@ -120,7 +114,6 @@ const Events = () => {
     const deleteEventFunction = events.filter((i) => i.id !== deleteEventCallback);
       setEvents(deleteEventFunction);
   }
-
 
   return (
 
@@ -139,16 +132,14 @@ const Events = () => {
                 Description: {event.description}, <br />
                 Category: {event.category}<br />
                 <button onClick={() => handleDeleteEvent(event.id)}>Delete Event</button>
-
               </li>
             );
           })}
         </ul>
-
+<div className="addeventdiv">
         <h3>Add Event</h3>
         <form id="add-event" action="#" onSubmit={handleAddNewEvent}>
           <fieldset>
-
             <label>ID: </label>
             <input
               type="text"
@@ -231,9 +222,9 @@ const Events = () => {
           </fieldset>
           <input type="submit" value="Add Event" />
         </form>
+        </div>
       </div>
     </section>
-
   )
 }
 export default Events;

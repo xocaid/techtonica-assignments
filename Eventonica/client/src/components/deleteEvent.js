@@ -25,8 +25,7 @@ const handleDeleteEvent = (e) => {
           />
         </fieldset>
         <input 
-        type="submit" 
-        value="Delete Event" />
+        type="submit"/>
       </form>
     </div>
   )

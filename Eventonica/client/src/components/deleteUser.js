@@ -1,5 +1,3 @@
-//DeleteUser Component was originally on App.js
-
 import { useState } from "react";
 //deleteUserCallback is a props to pass information to the parent
 const DeleteUser = ({ deleteUserCallback }) => {
