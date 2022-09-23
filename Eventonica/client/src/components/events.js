@@ -1,4 +1,5 @@
 import { useState, useReducer, useEffect } from "react";
+import DeleteEvent from "./deleteEvent";
 //useReducer helps manage complex state logic in React; stores & updates state like useState
 //Accepts a reducer function as its 1st parameter & initial state as 2nd
 //Returns an array that holds current value & dispatch fx to which you can pass an action and later invoke it
@@ -111,6 +112,16 @@ const Events = () => {
     setEvents([...events, content]);
   };
 
+  const handleDeleteEvent = async(deleteEventCallback) => {
+    const response = await fetch(`http://localhost:4000/events/${deleteEventCallback}`, {
+      method: 'DELETE',
+    })
+    await response.json();
+    const deleteEventFunction = events.filter((i) => i.id !== deleteEventCallback);
+      setEvents(deleteEventFunction);
+  }
+
+
   return (
 
     <section className="event-management">
@@ -126,7 +137,8 @@ const Events = () => {
                 Date: {event.date}, <br />
                 Name: {event.name}, <br />
                 Description: {event.description}, <br />
-                Category: {event.category}
+                Category: {event.category}<br />
+                <button onClick={() => handleDeleteEvent(event.id)}>Delete Event</button>
 
               </li>
             );
@@ -218,15 +230,6 @@ const Events = () => {
 
           </fieldset>
           <input type="submit" value="Add Event" />
-        </form>
-
-        <h3>Delete Event</h3>
-        <form id="delete-event" action="#">
-          <fieldset>
-            <label>Event ID: </label>
-            <input type="number" min="1" id="delete-event-id" />
-          </fieldset>
-          <input type="submit" value="Delete Event" />
         </form>
       </div>
     </section>

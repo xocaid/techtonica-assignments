@@ -33,7 +33,9 @@ const DeleteUser = ({ deleteUserCallback }) => {
           />
 
         </fieldset>
-        <input type="submit" value="Delete User" />
+        <input 
+        type="submit" 
+        value="Delete User" />
       </form>
     </div>
   )
