@@ -98,8 +98,18 @@ const Users = () => {
   return (
     <section className="user-management">
       <h2>User Management</h2>
+      <table class="table">
+        <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>ID</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
 
-      <ul id="users-list">
+              <ul id="users-list">
         {/* display all existing Users here */}
         {/* Prints out the name & email of Each user & assigns it an index */}
         {/* Map function is placed within an UNORDERED LIST and Map function
@@ -107,15 +117,18 @@ const Users = () => {
         Displays the name & email of the user.*/}
         {users.map((user, index) => {
           return (
-            <li key={index}>
-              Name: {user.name}  <br />
-              Email: {user.email}  <br />
-              ID#: {user.id} <br />
-              <button onClick={() => handleDeleteUser(user.id)}>Delete User</button>
-            </li>
+            <tr key={index}>
+             <td> {user.name} </td>
+             <td>{user.email} </td> 
+             <td> {user.id}</td> 
+             <td><button onClick={() => handleDeleteUser(user.id)}>Delete User</button></td> 
+            </tr>
+
           );
         })}
       </ul>
+      </tbody>
+      </table>
 
       <div className="addusersdiv">
         {/* Added Id & Email fields as per instructions */}

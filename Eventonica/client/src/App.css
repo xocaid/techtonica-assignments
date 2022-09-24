@@ -25,55 +25,48 @@ body{
 /* Users */
 .user-management{
   background-color: rgb(111, 3, 111, 0.9);
-  margin-left: 2em;
+  /* margin-left: 2em; */
   border: solid rgb(111, 3, 111) 2px;
-  padding-left: 10px;
-  padding-right: 10px;
+  /* padding-left: 10px; */
+
 }
 .addusersdiv{
   border: solid rgb(244, 244, 244) 3px;
-  margin-top: 15px;
+  /* margin-top: 15px;
   padding-left: 5px;
   padding-bottom: 5px;
   margin-bottom: 10px;
-  padding-right: 10px;
+  padding-right: 10px; */
 }
 
 /* Search Events */
 .event-management{
   background-color: rgb(111, 3, 111, 0.9);
   border: solid black 5px;
-  margin-top: 15px;
+  /* margin-top: 15px;
   margin-left: 2em;
   padding-right: 500px;
-  padding-left: 10px;
+  padding-left: 10px; */
   border: solid rgb(111, 3, 111) 3px;
-  padding-right: 500px;
 }
 
 .addeventdiv{
   border: solid rgb(244, 244, 244) 3px;
-  margin-top: 15px;
+  /* margin-top: 15px;
   padding-left: 5px;
   padding-bottom: 5px;
   margin-bottom: 10px;
-  padding-right: 10px;
-  padding-right: 100px;
+  padding-right: 10px; */
 }
 
 /* Events */
 .search-toolbar{
   background-color: rgb(111, 3, 111, 0.9);
-  padding-left: 10px;
+  /* padding-left: 10px;
   padding-bottom: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 10px; */
 }
 
-main {
-  display: flex;
-  justify-content: space-between;
-
-}
 /* Add & Delete Buttons */
 button{
   background-color: rgba(255, 159, 255);
@@ -86,18 +79,18 @@ input[type=submit]{
   border: rgba(255, 159, 255);
   border-radius: 5px;
 }
+
+table{
+  table-layout: auto;
+  width: 100%;  
+  display:table-header-group;
+} 
+
 /* Input Labels - Alignment */
 label {
   display: inline-block;
   width: 110px;
   text-align: left;
-}
-aside {
-  margin-left: 2em;
-  background-color: rgb(111, 3, 111, 0.9);
-  padding-left: 10px;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
 }
 
 footer {
