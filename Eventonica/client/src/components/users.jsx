@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 import DeleteUser from "./deleteUser";
 
 //DEFAULT INFO - Mock  users for hardcode data
-const marlin = { name: "Marlin", email: "marlin@gmail.com", id: "1" };
-const nemo = { name: "Nemo", email: "nemo@gmail.com", id: "2" };
-const dory = { name: "Dory", email: "dory@gmail.com", id: "3" };
+// const marlin = { name: "Marlin", email: "marlin@gmail.com", id: "1" };
+// const nemo = { name: "Nemo", email: "nemo@gmail.com", id: "2" };
+// const dory = { name: "Dory", email: "dory@gmail.com", id: "3" };
 
 const Users = () => {
   const getUsers = async () => {
@@ -20,7 +20,7 @@ const Users = () => {
   //useState for user/setUsers added as per instructions
   //The default state will display: marlin, nemo, & dory
   //users/setUsers will refer to the mock users & tack on the newUser at the end of the list
-  const [users, setUsers] = useState([marlin, nemo, dory]);
+  const [users, setUsers] = useState([]);
 
   //useState will store the new user(Add User)
   //The original state will be an empty string, this acts similar to placeholder text
@@ -98,36 +98,34 @@ const Users = () => {
   return (
     <section className="user-management">
       <h2>User Management</h2>
-      <table class="table">
+      <table class="users-table">
         <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>ID</th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>ID</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
 
-              <ul id="users-list">
-        {/* display all existing Users here */}
-        {/* Prints out the name & email of Each user & assigns it an index */}
-        {/* Map function is placed within an UNORDERED LIST and Map function
+          {/* display all existing Users here */}
+          {/* Prints out the name & email of Each user & assigns it an index */}
+          {/* Map function is placed within an UNORDERED LIST and Map function
         iterates through each user lists it as a <li> and an individual index.
         Displays the name & email of the user.*/}
-        {users.map((user, index) => {
-          return (
-            <tr key={index}>
-             <td> {user.name} </td>
-             <td>{user.email} </td> 
-             <td> {user.id}</td> 
-             <td><button onClick={() => handleDeleteUser(user.id)}>Delete User</button></td> 
-            </tr>
+          {users.map((user, index) => {
+            return (
+              <tr key={index}>
+                <td> {user.name} </td>
+                <td>{user.email} </td>
+                <td> {user.id}</td>
+                <td><button onClick={() => handleDeleteUser(user.id)}>Delete User</button></td>
+              </tr>
 
-          );
-        })}
-      </ul>
-      </tbody>
+            );
+          })}
+        </tbody>
       </table>
 
       <div className="addusersdiv">

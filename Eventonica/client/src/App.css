@@ -80,12 +80,25 @@ input[type=submit]{
   border-radius: 5px;
 }
 
-table{
+.users-table, th, td{
   table-layout: auto;
-  width: 100%;  
-  display:table-header-group;
+  border: 1px solid white;
+  padding: 15px;
+  margin: 20px;
+  border-collapse: collapse;
 } 
 
+.events-table{
+  table-layout: auto;
+  width: 100%;  
+  border-collapse: collapse;
+} 
+
+/* Delete Icon by class name */
+.trash-icon{
+height: 15%;
+width: 15%;
+}
 /* Input Labels - Alignment */
 label {
   display: inline-block;

@@ -1,33 +1,35 @@
 import { useState, useReducer, useEffect } from "react";
 import DeleteEvent from "./deleteEvent";
+import trash from "../trash.png";
+
 
 //useReducer helps manage complex state logic in React; stores & updates state like useState
 //Accepts a reducer function as its 1st parameter & initial state as 2nd
 //Returns an array that holds current value & dispatch fx to which you can pass an action and later invoke it
 //mock events from starter code as per instructions
-const event1 = {
-  id: "1",
-  name: "Birthday",
-  date: "2021-09-01",
-  description: "A birthday party for my best friend",
-  category: "Celebration",
-};
+// const event1 = {
+//   id: "1",
+//   name: "Birthday",
+//   date: "2021-09-01",
+//   description: "A birthday party for my best friend",
+//   category: "Celebration",
+// };
 
-const event2 = {
-  id: "2",
-  name: "Graduation",
-  date: "2021-08-01",
-  description: "The class of 2021 graduates from East High",
-  category: "Education",
-};
+// const event2 = {
+//   id: "2",
+//   name: "Graduation",
+//   date: "2021-08-01",
+//   description: "The class of 2021 graduates from East High",
+//   category: "Education",
+// };
 
-const event3 = {
-  id: "3",
-  name: "JS Study Session",
-  date: "2021-10-01",
-  description: "A chance to practice Javascript interview questions",
-  category: "Education",
-};
+// const event3 = {
+//   id: "3",
+//   name: "JS Study Session",
+//   date: "2021-10-01",
+//   description: "A chance to practice Javascript interview questions",
+//   category: "Education",
+// };
 
 //Added as per instructions
 //add a case of all the inputs you will use
@@ -53,12 +55,13 @@ const reducer = (state, action) => {
       return { ...state, category: action.payload };
 
     case 'clearForm':
-      return{    
-      id: "",
-      date: "",
-      description: "",
-      category: "",
-      name: ""};
+      return {
+        id: "",
+        date: "",
+        description: "",
+        category: "",
+        name: ""
+      };
 
     default:
       return state;
@@ -73,7 +76,7 @@ const Events = () => {
     const events = await response.json();
     setEvents(events);
   };
-  
+
   useEffect(() => {
     getEvents();
   }, []);
@@ -90,7 +93,7 @@ const Events = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-//ADD NEW EVENT  - EVENT HANDLER
+  //ADD NEW EVENT  - EVENT HANDLER
   const handleAddNewEvent = async (e) => {
     e.preventDefault();
     const newEvent = {
@@ -100,7 +103,7 @@ const Events = () => {
       category: state.category,
       date: state.date
     };
-    
+
     const response = await fetch('http://localhost:4000/events', {
       method: 'POST',
       headers: {
@@ -111,126 +114,137 @@ const Events = () => {
     });
     const content = await response.json();
     setEvents([...events, content]);
-    dispatch({type:'clearForm'})
+    dispatch({ type: 'clearForm' })
   };
 
-//DELETE EVENT  - EVENT HANDLER
-  const handleDeleteEvent = async(deleteEventCallback) => {
+  //DELETE EVENT  - EVENT HANDLER
+  const handleDeleteEvent = async (deleteEventCallback) => {
     const response = await fetch(`http://localhost:4000/events/${deleteEventCallback}`, {
       method: 'DELETE',
     })
     await response.json();
     const deleteEventFunction = events.filter((i) => i.id !== deleteEventCallback);
-      setEvents(deleteEventFunction);
+    setEvents(deleteEventFunction);
   }
 
   return (
-
     <section className="event-management">
       <h2>Event Management</h2>
       <div>
         <h3>All Events</h3>
-        <ul id="events-list">
-          {/* Display all Events here */}
-          {events.map((event, index) => {
-            return (
-              <li key={index}>
-                ID: {event.id} <br />
-                Date: {event.date} <br />
-                Name: {event.name} <br />
-                Description: {event.description} <br />
-                Category: {event.category}<br />
-                <button onClick={() => handleDeleteEvent(event.id)}>Delete Event</button>
-              </li>
-            );
-          })}
-        </ul>
-<div className="addeventdiv">
-        <h3>Add Event</h3>
-        <form id="add-event" action="#" onSubmit={handleAddNewEvent}>
-          <fieldset>
-            <label>ID: </label>
-            <input
-              type="text"
-              id="editId"
-              placeholder="Event ID"
-              value={state.id}
-              //Dispatch fx: dispatches an Action Object; when you update the state, call dispatch fx with Action Object
-              //State is update by eventHandler or completing fetch request
-              //dispatch(actionObject)
-              // Action Object: property type, string describing what kind of state update reducer must do, in this case editId
-              //Payload is useful information to be used by reducer and associated with Action Object
-              onChange={(e) =>
-                dispatch({
-                  type: "editId",
-                  payload: e.target.value,
-                })
-              }
-            />
-            <br />
+        <table class="events-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Date</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Category</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* Display all Events here */}
+            {events.map((event, index) => {
+              return (
+                <tr key={index}>
+                  <td>{event.id} </td>
+                  <td> {event.date} </td>
+                  <td>{event.name} </td>
+                  <td>{event.description} </td>
+                  <td>{event.category}</td>
+                  <td><img src={trash} class="trash-icon" onClick={() => handleDeleteEvent(event.id)} /></td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+        <div className="addeventdiv">
+          <h3>Add Event</h3>
+          <form id="add-event" action="#" onSubmit={handleAddNewEvent}>
+            <fieldset>
+              <label>ID: </label>
+              <input
+                type="text"
+                id="editId"
+                placeholder="Event ID"
+                value={state.id}
+                //Dispatch fx: dispatches an Action Object; when you update the state, call dispatch fx with Action Object
+                //State is update by eventHandler or completing fetch request
+                //dispatch(actionObject)
+                // Action Object: property type, string describing what kind of state update reducer must do, in this case editId
+                //Payload is useful information to be used by reducer and associated with Action Object
+                onChange={(e) =>
+                  dispatch({
+                    type: "editId",
+                    payload: e.target.value,
+                  })
+                }
+              />
+              <br />
 
-            <label>Date: </label>
-            <input
-              type="text"
-              id="editDate"
-              value={state.date}
-              onChange={(e) =>
-                dispatch({
-                  type: "editDate",
-                  payload: e.target.value,
-                })
-              }
-            />
-            <br />
+              <label>Date: </label>
+              <input
+                type="text"
+                id="editDate"
+                value={state.date}
+                onChange={(e) =>
+                  dispatch({
+                    type: "editDate",
+                    payload: e.target.value,
+                  })
+                }
+              />
+              <br />
 
-            <label>Event Name: </label>
-            <input
-              type="text"
-              id="editName"
-              placeholder="Event Name"
-              value={state.name}
-              onChange={(e) =>
-                dispatch({
-                  type: "editName",
-                  payload: e.target.value,
-                })
-              }
-            />
-            <br />
+              <label>Event Name: </label>
+              <input
+                type="text"
+                id="editName"
+                placeholder="Event Name"
+                value={state.name}
+                onChange={(e) =>
+                  dispatch({
+                    type: "editName",
+                    payload: e.target.value,
+                  })
+                }
+              />
+              <br />
 
-            <label>Description: </label>
-            <input
-              type="text"
-              id="editDescription"
-              placeholder="Event Description"
-              value={state.description}
-              onChange={(e) =>
-                dispatch({
-                  type: "editDescription",
-                  payload: e.target.value,
-                })
-              }
-            />
-            <br />
+              <label>Description: </label>
+              <input
+                type="text"
+                id="editDescription"
+                placeholder="Event Description"
+                value={state.description}
+                onChange={(e) =>
+                  dispatch({
+                    type: "editDescription",
+                    payload: e.target.value,
+                  })
+                }
+              />
+              <br />
 
-            <label>Category: </label>
-            <input
-              type="text"
-              id="editCategory"
-              placeholder="Event Category"
-              value={state.category}
-              onChange={(e) =>
-                dispatch({
-                  type: "editCategory",
-                  payload: e.target.value,
-                })
-              }
-            />
-            <br />
+              <label>Category: </label>
+              <input
+                type="text"
+                id="editCategory"
+                placeholder="Event Category"
+                value={state.category}
+                onChange={(e) =>
+                  dispatch({
+                    type: "editCategory",
+                    payload: e.target.value,
+                  })
+                }
+              />
+              <br />
 
-          </fieldset>
-          <input type="submit" value="Add Event" />
-        </form>
+            </fieldset>
+            <input type="submit" value="Add Event" />
+          </form>
         </div>
       </div>
     </section>
