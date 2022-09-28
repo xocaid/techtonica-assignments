@@ -86,6 +86,7 @@ const Users = () => {
     const deleteUserFunction = users.filter((i) => i.id !== deleteUserCallback);
     setUsers(deleteUserFunction);
   };
+  const [editingUserId, setEditingUserId] = useState();
 
 
   //Deletes user logged from users/setUsers
@@ -115,15 +116,26 @@ const Users = () => {
         iterates through each user lists it as a <li> and an individual index.
         Displays the name & email of the user.*/}
           {users.map((user, index) => {
-            return (
-              <tr key={index}>
-                <td> {user.name} </td>
-                <td>{user.email} </td>
-                <td> {user.id}</td>
-                <td><button onClick={() => handleDeleteUser(user.id)}>Delete User</button></td>
-              </tr>
+            if (user.id === editingUserId) {
+              return (
+                <tr key={index}>
+                  <td> {user.name} </td>
+                  <td>{user.email} </td>
+                  <td> {user.id}</td>
+                  </tr>
+                  );
+            } else {
+              return (
+                <tr key={index}>
+                  <td> {user.name} </td>
+                  <td>{user.email} </td>
+                  <td> {user.id}</td>
+                  <td><button onClick={() => handleDeleteUser(user.id)}>Delete User</button></td>
+                  <td><button onClick={() => setEditingUserId(user.id)}>Edit</button></td>
+                </tr>
 
-            );
+              );
+            };
           })}
         </tbody>
       </table>

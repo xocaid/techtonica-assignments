@@ -5,7 +5,6 @@ fieldset {
 }
 
 header {
-  /* For more about flexbox, see https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
   display: flex;
   align-items: center;
   color: rgb(120, 3, 120);
@@ -25,48 +24,29 @@ body{
 /* Users */
 .user-management{
   background-color: rgb(111, 3, 111, 0.9);
-  /* margin-left: 2em; */
   border: solid rgb(111, 3, 111) 2px;
-  /* padding-left: 10px; */
-
 }
+/*Add Users*/
 .addusersdiv{
   border: solid rgb(244, 244, 244) 3px;
-  /* margin-top: 15px;
-  padding-left: 5px;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
-  padding-right: 10px; */
-}
-
-/* Search Events */
-.event-management{
-  background-color: rgb(111, 3, 111, 0.9);
-  border: solid black 5px;
-  /* margin-top: 15px;
-  margin-left: 2em;
-  padding-right: 500px;
-  padding-left: 10px; */
-  border: solid rgb(111, 3, 111) 3px;
-}
-
-.addeventdiv{
-  border: solid rgb(244, 244, 244) 3px;
-  /* margin-top: 15px;
-  padding-left: 5px;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
-  padding-right: 10px; */
 }
 
 /* Events */
-.search-toolbar{
+.event-management{
   background-color: rgb(111, 3, 111, 0.9);
-  /* padding-left: 10px;
-  padding-bottom: 5px;
-  margin-bottom: 10px; */
+  border: solid rgb(111, 3, 111) 3px;
+}
+/*Add Event*/
+.addeventdiv{
+  border: solid rgb(244, 244, 244) 3px;
 }
 
+/* Search Events */
+.search-toolbar{
+  background-color: rgb(111, 3, 111, 0.9);
+
+}
+/******************** BUTTONS **********************/
 /* Add & Delete Buttons */
 button{
   background-color: rgba(255, 159, 255);
@@ -79,7 +59,7 @@ input[type=submit]{
   border: rgba(255, 159, 255);
   border-radius: 5px;
 }
-
+/******************** TABLE **********************/
 .users-table, th, td{
   table-layout: auto;
   border: 1px solid white;
@@ -93,11 +73,11 @@ input[type=submit]{
   width: 100%;  
   border-collapse: collapse;
 } 
-
+/******************** ICONS **********************/
 /* Delete Icon by class name */
 .trash-icon{
-height: 15%;
-width: 15%;
+height: 6%;
+width: 6%;
 }
 /* Input Labels - Alignment */
 label {
