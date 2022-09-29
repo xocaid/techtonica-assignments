@@ -1,0 +1,94 @@
+/* App.css was copied from starter code as per instructions */
+fieldset {
+  border: none;
+  margin: 1rem 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  color: rgb(120, 3, 120);
+}
+
+header img {
+  height: 64px;
+  margin-right: 1em;
+}
+body{
+  background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20210429/pngtree-colorful-abstract-faceted-crystallized-background-image_689475.jpg');
+  background-color: pink;
+  font-size: 20px;
+  color: white;
+}
+
+/* Users */
+.user-management{
+  background-color: rgb(111, 3, 111, 0.9);
+  border: solid rgb(111, 3, 111) 2px;
+}
+/*Add Users*/
+.addusersdiv{
+  border: solid rgb(244, 244, 244) 3px;
+}
+
+/* Events */
+.event-management{
+  background-color: rgb(111, 3, 111, 0.9);
+  border: solid rgb(111, 3, 111) 3px;
+}
+/*Add Event*/
+.addeventdiv{
+  border: solid rgb(244, 244, 244) 3px;
+}
+
+/* Search Events */
+.search-toolbar{
+  background-color: rgb(111, 3, 111, 0.9);
+
+}
+/******************** BUTTONS **********************/
+/* Add & Delete Buttons */
+button{
+  background-color: rgba(255, 159, 255);
+  border: rgba(255, 159, 255);
+  border-radius: 5px;
+}
+/* Submit Button */
+input[type=submit]{
+  background-color: rgba(255, 159, 255);
+  border: rgba(255, 159, 255);
+  border-radius: 5px;
+}
+/******************** TABLE **********************/
+.users-table, th, td{
+  table-layout: auto;
+  border: 1px solid white;
+  padding: 15px;
+  margin: 20px;
+  border-collapse: collapse;
+} 
+
+.events-table{
+  table-layout: auto;
+  width: 100%;  
+  border-collapse: collapse;
+} 
+/******************** ICONS **********************/
+/* Delete Icon by class name */
+.trash-icon{
+height: 6%;
+width: 6%;
+}
+/* Input Labels - Alignment */
+label {
+  display: inline-block;
+  width: 110px;
+  text-align: left;
+}
+
+footer {
+  background-color: black;
+  margin-top: 1rem;
+  font-size: small;
+  color: white;
+}
