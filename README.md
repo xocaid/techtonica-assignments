@@ -29,4 +29,4 @@ This repository contains multiple projects, each with its own installation instr
 
 ---
 ### Notes
-Projects were created within a limited timeframe of 4 days, so they may not be extensive and could be missing some functionality. However, these projects serve as a demonstration of what can be achieved within a short timeframe. 
+Projects were created in a limited timeframe of 3-4 days, so they may not be extensive and could be missing some functionality. However, these projects serve as a demonstration of what can be achieved within a short timeframe. 
