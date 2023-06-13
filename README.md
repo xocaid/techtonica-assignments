@@ -5,7 +5,9 @@ Here, you will find a collection of projects that I built while at Techtonica, a
 
 These projects delve into various topics, including CSS, HTML, JS DOM, and full-stack JavaScript. With hands-on experience, I learned how to seamlessly connect front-end and back-end components using cutting-edge technologies like React, Express, Node, and PostgreSQL.
 
-## Projects
+---
+
+### Projects
 <b><u> JS DOM, HTML, & CSS:</u></b>
 
 - Week 1: Bank Account
@@ -20,4 +22,11 @@ These projects delve into various topics, including CSS, HTML, JS DOM, and full-
 - Week 7: Weather App
 - Week 8: Quiz App
 - Week 9: Eventonica
+---
 
+### Installation
+This repository contains multiple projects, each with its own installation instructions in the project-specific README files.
+
+---
+### Notes
+Projects were created within a limited timeframe of 4 days, so they may not be extensive and could be missing some functionality. However, these projects serve as a demonstration of what can be achieved within a short timeframe. 
