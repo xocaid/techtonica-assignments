@@ -12,6 +12,7 @@ input[type=text] {
   border-radius: 30px;
   border-color: white;
   font-size: 40px;
+  margin: 8px;
 }
 
 ::placeholder{
@@ -26,6 +27,7 @@ input[type=submit] {
   border-radius: 30px;
   border-color: white;
   font-size: 30px;
+  margin: 8px;
 }
 
 button {
@@ -35,4 +37,5 @@ button {
   border-radius: 30px;
   border-color: white;
   font-size: 30px;
+  margin: 10px;
 }
