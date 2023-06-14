@@ -1,58 +1,59 @@
-body{
+body {
   background-color: rgb(192, 150, 255);
   background-image: linear-gradient(to bottom right, rgb(28, 28, 86), rgb(192, 150, 255));
-  color: white;
-}
-.App {
-  /*background-image: image(min-height: 100; min-width: 1024px) ;
-  background-image: URL("https://media.istockphoto.com/vectors/books-seamless-pattern-vector-id470721440?k=20&m=470721440&s=612x612&w=0&h=o3yXdl1xi_kbMdyP6NRirKX4Y0m8WjVgul9zl4i5LtU=");
-  */
-  /* background-color: blue;
-  background-image: linear-gradient(to bottom right, orange); */
-  font-family: sans-serif;
+  color: rgb(192, 150, 255);
+  font-family:'Gill Sans', 'Gill Sans MT','Trebuchet MS', sans-serif;
   text-align: center;
-  font-size: 20px;
+  font-size: 40px;
 }
+
 .flashcard {
-  color: white;
   font-size: 30px;
-  line-height: auto; /*Space at the top & bottom*/
+  color:rgb(57, 32, 171);
+  /*Space at the top & bottom*/
   width: 300px;
   padding: 20px;
-  border: 5px solid rgb(121, 160, 255); /*At this point, the card, they are stacked on top of each other*/
-  margin: 18px; /*Adds space between cards*/
+  /*At this point, the card, they are stacked on top of each other*/
+  margin: 18px;
+  /*Adds space between cards*/
   float: left;
   cursor: pointer;
-  user-select: none; /*Doesn't allow for the text within the box to be highlighted/selected*/
+  /*Doesn't allow for the text within the box to be highlighted/selected*/
+  border-radius: 10px;
 }
+
 .flashcard.front {
-  background-color: rgb(21, 44, 109);
+  background-color: rgb(121, 160, 255);
 }
+
 .flashcard.back {
-  background-color: rgb(159, 160, 255);
+  background-color: rgb(206, 148, 253);
 }
-.KeepCount{
-  background-color: rgb(21, 44, 109);
-  line-height: auto; /*Space at the top & bottom*/
+
+.scoreDiv {
+  background-color: rgb(121, 160, 255);
+  color: rgb(61, 40, 154);
+  /*Space at the top & bottom*/
   width: 300px;
-  border: 5px solid rgb(121,160,255); /*At this point, the card, they are stacked on top of each other*/
-  margin: 20px; /*Adds space between cards*/
-  padding: 15px;
+  /*At this point, the card, they are stacked on top of each other*/
   float: right;
-  user-select: none;
+  border-radius: 10px;
+  font-size: 40px;
+  margin: 10px;
 }
+
 button {
   color: white;
   background-color: rgb(192, 150, 255);
   font-size: 40px;
+  margin: 5px;
+  border-radius: 5px;
+  border: none;
+  padding: 11px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-.correct {
-  color: rgb(255, 234, 0);
-  font-size: 40px;
-  float: none;
-}
-.incorrect {
-  color: rgb(255, 0, 0);
-  font-size: 40px;
-  float: none;
+.decrementBtn{
+  padding-left: 15px;
+  padding-right: 15px;
 }
