@@ -33,13 +33,13 @@ userInputBox.setAttribute('type', 'text');
 userInputBox.setAttribute('id', 'userGuess');
 userInputBox.setAttribute('placeholder', 'Enter your guess');
 userInputBox.setAttribute('required', '');
+gameForm.appendChild(br.cloneNode());
 document.getElementById('myGameForm').appendChild(userInputBox);
 
 //Create Submit Button
 let submitBtn = document.createElement('INPUT');
 submitBtn.setAttribute('type', 'submit');
 submitBtn.setAttribute('value', 'Submit Your Guess');
-gameForm.appendChild(br.cloneNode());
 gameForm.appendChild(br.cloneNode());
 gameForm.appendChild(submitBtn);
 
@@ -48,7 +48,6 @@ let resetBtn = document.createElement('BUTTON');
 resetBtn.setAttribute('type', 'reset');
 resetBtn.setAttribute('id', 'reset');
 resetBtn.innerText = "Reset";
-gameForm.appendChild(br.cloneNode());
 gameForm.appendChild(br.cloneNode());
 gameForm.appendChild(resetBtn);
 
