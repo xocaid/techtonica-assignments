@@ -3,6 +3,7 @@
 ## Description
  Create a webpage featuring one of your favorite recipes. It should display the ingredients, step-by-step instructions, links to similar recipes, and at least one photo. Utilize HTML for structuring the webpage, CSS for styling and layout, and JavaScript DOM to incorporate interactive elements.
 
+---
 ### Installation
 To get started with the project, follow these steps:
 <br/>
@@ -21,5 +22,6 @@ cd Week2_RecipePage
 
 The project will open in your default web browser, allowing you to interact with the live version.
 
+---
 ### Note
 Ensure that you have "Live Server" installed on VS Code. If not, download and install it from Extensions.
