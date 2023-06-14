@@ -6,9 +6,10 @@ body {
   height: 950px;
   background-color: #001E00;
   /*FONT*/
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', sans-serif
+  font-family: 'Courier New', Courier, monospace;
 }
-img{
+
+img {
   max-width: 30%;
   border-radius: 50%;
   border: 7px solid #284628;
@@ -16,35 +17,42 @@ img{
   margin-left: auto;
   margin-right: auto;
 }
-h1{
+
+h1 {
   font-size: 50px;
   color: white;
   text-align: center;
 }
-h4{
+
+h4 {
   font-size: 30px;
   color: white;
   text-align: left;
 }
 
-form{
+form {
   color: white;
   background-color: #284628;
   padding: 10px;
   text-align: center;
 }
-input[type=text], select{
+
+input[type=text],
+select {
   width: 95%;
   background-color: lightgrey;
   color: darkgreen;
   margin: 10px;
 }
-input[type=submit]{
-  width:100%;
+
+input[type=submit] {
+  width: 100%;
   background-color: #001E00;
   color: white;
+  font-family:'Courier New', Courier, monospace;
 }
-input[type=submit]:hover{
+
+input[type=submit]:hover {
   background-color: green;
 }
 
@@ -61,6 +69,7 @@ input[type=submit]:hover{
   /*around the collapsible button, can also put none*/
   text-align: center;
   font-size: 25px;
+  font-family:'Courier New', Courier, monospace;
 }
 
 /*BUTTON Hover*/
@@ -78,6 +87,7 @@ input[type=submit]:hover{
   background-color: #001E00;
   color: white;
 }
+
 /*Padding: top right left bottom*/
 
 /*CSS for Social Media Buttons from W3Schools*/
@@ -92,65 +102,73 @@ input[type=submit]:hover{
 }
 
 .fa:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .fa-linkedin {
   background: #007bb5;
   color: white;
 }
+
 .fa-github {
   background: #55ACEE;
   color: white;
 }
 
-@media(min-width: 1200px){
-  img{
+@media(min-width: 1200px) {
+  img {
     width: 35%;
     display: block;
     margin: 0 auto;
     border: 7px solid hotpink;
   }
-  body{
+
+  body {
     background-image: url('https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/04/a0004907/img/basic/a0004907_main.jpg');
     background-color: #cd0037;
-    font-family: cursive;
-    color:#D8BFD8;
+    font-family: 'Courier New', Courier, monospace;
+    color: #D8BFD8;
   }
+
   .row {
     display: flex;
     background-color: #D8BFD8;
   }
-  .collapsible{
-    font-family: cursive;
+
+  .collapsible {
+    font-family: 'Courier New', Courier, monospace;
     background-color: hotpink;
   }
+
   .active,
-.collapsible:hover {
-  background-color: #cd0037;
+  .collapsible:hover {
+    background-color: #cd0037;
+  }
+
+  .content {
+    padding: 10px 20px 20px 15px;
+    display: none;
+    overflow: auto;
+    /*if content goes over it will create scroll function*/
+    background-color: hotpink;
+    color: white;
+  }
+
+  form {
+    color: white;
+    background-color: rgb(238, 146, 192);
+    padding: 10px;
+    text-align: center;
+  }
+
+  input[type=submit] {
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+    background-color: #cd0037;
+    color: white;
+  }
+
+  input[type=submit]:hover {
+    background-color: hotpink;
+  }
 }
-.content {
-  padding: 10px 20px 20px 15px;
-  display: none;
-  overflow: auto;
-  /*if content goes over it will create scroll function*/
-  background-color: hotpink;
-  color: white;
-}
-form{
-  color: white;
-  background-color: rgb(238, 146, 192);
-  padding: 10px;
-  text-align: center;
-}
-input[type=submit]{
-  font-family: cursive;
-  width:100%;
-  background-color: #cd0037;
-  color: white;
-}
-input[type=submit]:hover{
-  background-color: hotpink;
-}
-}
-  

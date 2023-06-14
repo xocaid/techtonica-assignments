@@ -1,7 +1,7 @@
 let br = document.createElement("br");
 let myImg = document.createElement('img');
 myImg.setAttribute('id', 'myImage');
-myImg.setAttribute('src', 'https://media-exp1.licdn.com/dms/image/C5622AQGr1Apbwi1Cow/feedshare-shrink_2048_1536/0/1659639646579?e=1663804800&v=beta&t=SQT3E9XuYHbo98iQrv6Elh9H49JqwWitFkesRpIh6jo');
+myImg.setAttribute('src', 'https://media.licdn.com/dms/image/D5603AQHi6rs37ccrmg/profile-displayphoto-shrink_400_400/0/1646286190314?e=1692230400&v=beta&t=dokKAcFYNYP8e_JP9H_sPZzUObc1Fev8SM3DPoDRgio');
 document.body.appendChild(myImg);
 
 //*************ABOUT ME*********
@@ -23,7 +23,7 @@ document.body.appendChild(newDiv1);
 let pAboutMe = document.createElement('p');
 pAboutMe.setAttribute('id', 'pAboutMe');
 aboutMe.appendChild(pAboutMe);
-let pAboutMeText = document.createTextNode("Hi all, my name is Xochitl and thank you for visting my page and this is my page.");
+let pAboutMeText = document.createTextNode("Provide a brief description of who you are, skills, current job, and goals.");
 pAboutMe.appendChild(pAboutMeText);
 
 //*************ONLINE RESUME*********
@@ -45,7 +45,7 @@ document.body.appendChild(newDiv2);
 let pResume = document.createElement('p');
 pResume.setAttribute('id', 'presume');
 onlineResume.appendChild(pResume);
-let pResumeText = document.createTextNode("Work experience: Short description");
+let pResumeText = document.createTextNode("Work experience: Provide main bullet points of professional experience, skills, technologies, and etc.");
 pResume.appendChild(pResumeText);
 
 //*************CODE EXPERIENCE*********
@@ -67,7 +67,7 @@ document.body.appendChild(newDiv3);
 let pCodeExp = document.createElement('p');
 pCodeExp.setAttribute('id', 'pCodeExperience');
 codeExperience.appendChild(pCodeExp);
-let pCodeExpText = document.createTextNode("CODE experience: LIST coding experience entries & past work experience you can apply to tech job.");
+let pCodeExpText = document.createTextNode("List favorite projects to showcase potential employers.");
 pCodeExp.appendChild(pCodeExpText);
 
 //*************CONTACT ME*********
@@ -89,8 +89,8 @@ document.body.appendChild(newDiv4);
 let pContactMe = document.createElement('p');
 pContactMe.setAttribute('id', 'pContactMes');
 contactMe.appendChild(pContactMe);
-let pContactMeText = document.createTextNode("Email:my@email.com");
-let pContactMeText1 = document.createTextNode("Phone #: (123)555-4567");
+let pContactMeText = document.createTextNode("Email:john_smith@gmail.com");
+let pContactMeText1 = document.createTextNode("Phone #: (303)555-4567");
 pContactMe.appendChild(pContactMeText);
 pContactMe.appendChild(br.cloneNode());
 pContactMe.appendChild(pContactMeText1);
