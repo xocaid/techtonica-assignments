@@ -1,7 +1,7 @@
 let br = document.createElement("br");
 let myImg = document.createElement('img');
 myImg.setAttribute('id', 'myImage');
-myImg.setAttribute('src', 'https://media-exp1.licdn.com/dms/image/C5622AQGr1Apbwi1Cow/feedshare-shrink_2048_1536/0/1659639646579?e=1663804800&v=beta&t=SQT3E9XuYHbo98iQrv6Elh9H49JqwWitFkesRpIh6jo');
+myImg.setAttribute('src', 'https://media.licdn.com/dms/image/D5603AQHi6rs37ccrmg/profile-displayphoto-shrink_400_400/0/1646286190314?e=1692230400&v=beta&t=dokKAcFYNYP8e_JP9H_sPZzUObc1Fev8SM3DPoDRgio');
 document.body.appendChild(myImg);
 
 //*************ABOUT ME*********
