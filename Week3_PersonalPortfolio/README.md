@@ -18,9 +18,9 @@ git clone git@github.com:xocaid/techtonica-assignments.git
 ```
 cd Week3_PersonalPortfolio
 ```
-3. Locate the recipePg.html file within the project.
+3. Locate the `profile.html` file within the project.
 
-4. Right-click on the `profile.html` file and select <i>Open with Live Server</i> from the context menu.
+4. Right-click on the body of file and select <i>Open with Live Server</i> from the context menu.
 
 The project will open in your default web browser, allowing you to interact with the live version.
 
