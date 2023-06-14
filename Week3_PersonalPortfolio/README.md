@@ -1,7 +1,8 @@
 # Personal Portfolio
 
 ## Description
-This goal of the online portfolio, is to showcase skills, experience, and best work of a software engineer. Build project using HTML, CSS, and JavaScript DOM manipulation, creating an interactive and visually appealing representation of my abilities.
+This goal of the peronsal portofolio is to showcase user's background, including education, work experience, technical skills, and projects as a software engineer. Build project using HTML, CSS, and JavaScript DOM manipulation, creating an interactive and visually appealing representation of their web programming abilities.
+
 
 ---
 
@@ -22,3 +23,7 @@ cd Week3_PersonalPortfolio
 4. Right-click on the `profile.html` file and select <i>Open with Live Server</i> from the context menu.
 
 The project will open in your default web browser, allowing you to interact with the live version.
+
+---
+### Note
+The current content is placeholder text, you can customize the portfolio by replacing the placeholders with your own information and showcasing your real projects.
