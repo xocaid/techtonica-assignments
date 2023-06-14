@@ -1,21 +1,15 @@
 import './styles.css';
 import React from "react";
-import Count from "./Count";
+import Score from './score';
 import Flashcards from './flashcards';
 
 function App() {
   return (
     <div className="App">
-      <h1>Flascard Quiz</h1>
-      <h3>Click on card to test your knowledge</h3>
+      <p><b>Flascard Quiz</b></p>
+      <p>Click on card to test your knowledge</p>
 
-      <div className="KeepCount">
-        <h2>Your score</h2>
-        <h2 className="correct">Correct</h2>
-        <Count />
-        <h2 className="incorrect">Incorrect</h2>
-        <Count />
-      </div>
+      <Score />
       <Flashcards />
     </div>
   );
