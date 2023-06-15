@@ -30,7 +30,8 @@ const BOOKS = [{
   "author": "Gabriel Garcia Marquez",
   "format": "Paperback"
 },
-{ "isbn": "9781423101260",
+{
+  "isbn": "9781423101260",
   "title": "Blue Bloods",
   "author": "Melissa de la Cruz",
   "format": "Hardcover"

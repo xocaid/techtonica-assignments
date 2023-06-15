@@ -11,10 +11,10 @@
 //cannot have extra text in package.json, it will freak out
 
 async function displayBooks() {
-  const URL = 'http://localhost:8081/api/myBooks';
-  //Fetching/getting the from myBooks API link
+  const URL = 'http://localhost:8081/api/books';
+  //Fetching/getting the from books API link
   const response = await fetch(URL);
-  //Responds with data from myBooks API
+  //Responds with data from books API
   const responseBooks = await response.json();
   console.log(responseBooks);
 

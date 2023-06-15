@@ -5,8 +5,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import path from "path";
-//Import const Books from myBooks.js file
-import books from "./myBooks.js";
+//Import const Books from books.js file
+import books from "./books.js";
 //comes with EXPRESS package
 
 //added bookList because it is not being read from line 9 books
@@ -30,9 +30,9 @@ app.use(bodyParser.json());
 const __dirname = path.resolve();
 app.use(express.static('bookList'));
 
-//Displays your list of books(database)from myBooks.js file in an array
-//This will be displayed on localhost:8081/api/myBooks
-app.get('/api/myBooks', (req, res) => {
+//Displays your list of books(database)from books.js file in an array
+//This will be displayed on localhost:8081/api/books
+app.get('/api/books', (req, res) => {
   res.json(bookList);
 });
 
