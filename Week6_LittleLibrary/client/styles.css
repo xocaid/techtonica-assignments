@@ -1,0 +1,40 @@
+body {
+    background-color: rgb(228, 237, 254);
+    color: rgb(178, 54, 255);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 2%;
+}
+
+h1 {
+    text-align: center;
+}
+
+.card {
+    background-color: rgb(187, 102, 253);
+    color: white;
+    margin: 5px;
+    width: 400px;
+    height: 280px;
+}
+
+.newBookContainer {
+    border: 5px dotted rgb(197, 152, 255);
+    border-radius: 15px;
+    padding: 5%;
+    background-color: rgb(187, 102, 253, 0.3);
+}
+
+.btn {
+    background-color: rgb(98, 132, 255);
+    color: rgb(228, 237, 254);
+    font-weight: bolder;
+    border: none;
+}
+
+.btn[type='submit'] {
+    background-color: rgb(178, 54, 255);
+}
+
+.btn[type='delete'] {
+    background-color: rgb(255, 74, 74);
+}
