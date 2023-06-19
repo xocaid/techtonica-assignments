@@ -28,21 +28,12 @@ app.use(bodyParser.json());
 
 //Informs server what directory we are working on
 const __dirname = path.resolve();
-app.use(express.static('bookList'));
+app.use(express.static('client'));
 
 //Displays your list of books(database)from books.js file in an array
 //This will be displayed on localhost:8081/api/books
 app.get('/api/books', (req, res) => {
   res.json(bookList);
-});
-
-
-//This string gets sent to the DEFAULT PORT path, declared in const PORT
-//In this case it will be on localhost:8081
-app.get("/", (req, res) => {
-  //res.send(`Hello Techtonica, this is my HAPPY API.`)
-  //res.sendFile() function transfers the file at the given path & it sets Content Type response HTTP header field based on the filename extension
-  res.sendFile(path.join(__dirname, "bookList", "index.html"));
 });
 
 app.use(bodyParser.json());
@@ -99,6 +90,14 @@ app.post('/book/:isbn', (req, res) => {
   res.send('Book is edited');
 });
 
+
+//This string gets sent to the DEFAULT PORT path, declared in const PORT
+//In this case it will be on localhost:8081
+app.get("/:wildcard", (req, res) => {
+  //res.send(`Hello Techtonica, this is my HAPPY API.`)
+  //res.sendFile() function transfers the file at the given path & it sets Content Type response HTTP header field based on the filename extension
+  res.sendFile(path.join(__dirname, "client", req.params.wildcard ?? "index.html"));
+});
 
 //This message Displays in the VS Code terminal - that PORT 8081 is listening/active
 app.listen(PORT, () => console.log(`HOLA! Server is running at port ${PORT}.`));
