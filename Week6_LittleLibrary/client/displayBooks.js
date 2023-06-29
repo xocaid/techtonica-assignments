@@ -22,68 +22,109 @@ async function displayBooks() {
   for (let book of responseBooks) {
     const card = `
     <div class = "col-4">
-    <div class = "card">
-    <div class = "card-body">
-    <h3 class = "class-title"> <b> ${book.title}</b></h3>
-    <h5 class = "class-author"> ${book.author}</h5>
-    <h6 class = "class-isbn"> ${book.isbn}</h6>
+     <div class = "card">
+       <div class = "card-body">
+         <h3 class = "class-title"> <b> ${book.title}</b></h3>
+         <h5 class = "class-author"> ${book.author}</h5>
+         <h6 class = "class-isbn"> ${book.isbn}</h6>
+         <h6 class = "class-isbn"> ${book.format}</h6>
 
-    <button type="delete" 
-    class="btn btn-danger" 
-    onclick="deleteBook('${book.isbn}')">
-    Delete
-    </button>
+         <button type="delete" 
+          class="btn btn-danger" 
+          onclick="setDeleteBook('${book.isbn}')">
+          Delete
+         </button>
 
-    <button type="edit" 
-    class="btn btn-primary" 
-    data-toggle="modal"
-    data-target="#editBookModal" 
-    onClick="setEditModal(${book.isbn})">
-    Edit
-    </button>
+         <button type="edit" 
+          class="btn btn-primary" 
+          data-toggle="modal"
+          data-target="#editBookModal" 
+          onClick="setEditBook(${book.isbn})">
+          Edit
+         </button>
     
+        </div>
 
-    </div>
-    </div>
+
+        <form action="http://localhost:8081/book" class = "edit_Form" >
+        
+        <div class="form-group">
+         <label for="edit_title_${book.isbn}">Title</label>
+         <input class="form-control" name="title" id= "edit_title_${book.isbn}" value= '${book.title}'>
+        </div>
+        
+        <div class="form-group">
+          <label for="edit_author_${book.isbn}">Author</label>
+          <input class="form-control" name="author" id= "edit_author_${book.isbn}" value= '${book.author}'>
+        </div>
+
+        <div class="form-group">
+          <label for="edit_isbn_${book.isbn}">ISBN</label>
+          <input class="form-control" name="isbn" id= "edit_isbn_${book.isbn}" value= '${book.isbn}'>
+        </div>
+
+          <div class="form-group">
+           <label for="edit_format_${book.isbn}">Format</label>
+           <input class="form-control" name="format" id= "edit_format_${book.isbn}" value= '${book.format}'>
+          </div>
+    
+          <!--Other fields-->
+          <button type="submit" class="btn submit">Close</button>
+      </form>
+     </div>
     </div>
     `;
-
+//edit_Form --> label for & id, are the isbn number to prevent issues if there is a repeat author, title, and/or format
     document.getElementById("books").innerHTML = document.getElementById("books").innerHTML + card;
   }
 }
 
 displayBooks();
 
-//Delete Books
-const deleteBook = (isbn) => {
-  const xhttp = new XMLHttpRequest();
-
-  xhttp.open("DELETE", `http://localhost:8081/book/${isbn}`, false);
-  xhttp.send();
-
-  // Reloading the page
+//DELETE Books
+const setDeleteBook = async (isbn) => {
+  await fetch(`http://localhost:8081/book/${isbn}`, {
+    method: 'DELETE',
+  });
+  //Reloading the page
   location.reload();
+}
+
+//**************** EDIT Books *******************
+//PART 1: GET Request
+const setGetBook = async (isbn) => {
+  try {
+    // Get information about the book using isbn
+    const response = await fetch(`http://localhost:8081/book/${isbn}`);
+    const book = await response.json();
+
+    const { title, author } = book;
+
+    // Filling information about the book in the form inside the modal
+    document.getElementById('isbn').value = isbn;
+    document.getElementById('title').value = title;
+    document.getElementById('author').value = author;
+
+    // Setting up the action url for the book
+    document.getElementById('editForm').action = `http://localhost:8081/book/${isbn}`;
+  } catch (error) {
+    // Handle error if fetch request fails
+    console.log('Could not get book details to EDIT.');
+    console.error(error);
+
+  }
 };
+//PART 2: PUT Request
+const setEditBook = async (isbn) => {
 
-// const setEditModal = (isbn) => {
-//   // Get information about the book using isbn
-//   const xhttp = new XMLHttpRequest();
+}
 
-//   xhttp.open("GET", `http://localhost:8081/book/${isbn}`, false);
-//   xhttp.send();
+//First use a get request to fetch the data and render it
+//Once you have that data THEN you can do a PUT request to send it to the backend
 
-//   const book = JSON.parse(xhttp.responseText);
+//DEFAULT - When you DONT specify the type of HTTP request, it defaults to a GET
 
-//   const {
-//       title,
-//       author,
-//   } = book;
-
-//   // Filling information about the book in the form inside the modal
-//   document.getElementById('isbn').value = isbn;
-//   document.getElementById('title').value = title;
-//   document.getElementById('author').value = author;
-
-//   // Setting up the action url for the book
-//   document.getElementById('editForm').action = `http://localhost:8081/book/${isbn}`;
-// };
+//2 Parts for EDIT to work
+//GET request - enables you to EDIT form, displaying the info you are trying to edit
+//SAVE/SUBMIT -> Click that is when you send the put request
+//edit request needs to be tied submit functionality
