@@ -38,8 +38,7 @@ async function displayBooks() {
          <button type="edit" 
           class="btn btn-primary" 
           data-toggle="modal"
-          data-target="#editBookModal" 
-          onClick="setEditBook(${book.isbn})">
+          data-target="#editBookModal">
           Edit
          </button>
     
@@ -69,19 +68,19 @@ async function displayBooks() {
           </div>
     
           <!--Other fields-->
-          <button type="submit" class="btn submit">Close</button>
+          <button type="submit" class="btn submit" onClick="event.preventDefault();setEditBook('${book.isbn}')">Close</button>
       </form>
      </div>
     </div>
     `;
-//edit_Form --> label for & id, are the isbn number to prevent issues if there is a repeat author, title, and/or format
+    //edit_Form --> label for & id, are the isbn number to prevent issues if there is a repeat author, title, and/or format
     document.getElementById("books").innerHTML = document.getElementById("books").innerHTML + card;
   }
 }
 
 displayBooks();
 
-//DELETE Books
+//**************** DELETE Book *******************
 const setDeleteBook = async (isbn) => {
   await fetch(`http://localhost:8081/book/${isbn}`, {
     method: 'DELETE',
@@ -90,41 +89,34 @@ const setDeleteBook = async (isbn) => {
   location.reload();
 }
 
-//**************** EDIT Books *******************
-//PART 1: GET Request
-const setGetBook = async (isbn) => {
-  try {
-    // Get information about the book using isbn
-    const response = await fetch(`http://localhost:8081/book/${isbn}`);
-    const book = await response.json();
-
-    const { title, author } = book;
-
-    // Filling information about the book in the form inside the modal
-    document.getElementById('isbn').value = isbn;
-    document.getElementById('title').value = title;
-    document.getElementById('author').value = author;
-
-    // Setting up the action url for the book
-    document.getElementById('editForm').action = `http://localhost:8081/book/${isbn}`;
-  } catch (error) {
-    // Handle error if fetch request fails
-    console.log('Could not get book details to EDIT.');
-    console.error(error);
-
-  }
-};
-//PART 2: PUT Request
+//**************** EDIT Book *******************
 const setEditBook = async (isbn) => {
+  //Need to define your data
+  //Where is the data coming from, its in the HTML file, so we have to use Vanilla JS aka JS DOM
+  //In this case ${book.isbn} is not needed because it is not defined, isbn === ${book.isbn}
+  // .value gets the value of an input
+  //location.reload is supposed to be in the .then to not reload before everything downloads/starts
+  const data = {
+    title: document.getElementById(`edit_title_${isbn}`).value,
+    author: document.getElementById(`edit_author_${isbn}`).value,
+    isbn: document.getElementById(`edit_isbn_${isbn}`).value,
+    format: document.getElementById(`edit_format_${isbn}`).value,
+  }
+  fetch(`http://localhost:8081/book/${isbn}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log(`Edit was succesful for isbn: ${isbn}`, data);
+      //Reloading the page
+      location.reload();
+    })
+    .catch(error => {
+      console.log(`Edit was NOT successful for isbn: ${isbn}`, error);
+    })
 
 }
-
-//First use a get request to fetch the data and render it
-//Once you have that data THEN you can do a PUT request to send it to the backend
-
-//DEFAULT - When you DONT specify the type of HTTP request, it defaults to a GET
-
-//2 Parts for EDIT to work
-//GET request - enables you to EDIT form, displaying the info you are trying to edit
-//SAVE/SUBMIT -> Click that is when you send the put request
-//edit request needs to be tied submit functionality
