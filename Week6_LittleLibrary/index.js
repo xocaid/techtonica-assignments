@@ -61,7 +61,7 @@ app.delete('/book/:isbn', (req, res) => {
   const isbn = req.params.isbn;
 
   // Remove item from the books array
-  bookList  = bookList.filter(i => {
+  bookList = bookList.filter(i => {
     if (i.isbn !== isbn) {
       return true;
     }
@@ -69,25 +69,26 @@ app.delete('/book/:isbn', (req, res) => {
   });
 
   res.send('Book is deleted');
-  
+
 });
 
 
 //EDITING BOOK
-app.post('/book/:isbn', (req, res) => {
+app.put('/book/:isbn', (req, res) => {
   // Reading isbn from the URL
   const isbn = req.params.isbn;
   const newBook = req.body;
 
   // Remove item from the books array
   for (let i = 0; i < bookList.length; i++) {
-    let book = booksList[i]
+    let book = bookList[i]
     if (book.isbn === isbn) {
       bookList[i] = newBook;
     }
   }
   console.log('Trying to edit');
-  res.send('Book is edited');
+  //
+  res.send({ message: 'Book is edited' });
 });
 
 
