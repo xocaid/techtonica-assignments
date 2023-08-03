@@ -8,7 +8,6 @@
 //if you go to Network, and click Preserve Log, it will keep a record of what is happening,
 //In this case when you clicked the delete button with a starting 0, the log would should the number pop up without a 0, not the same number
 //once the problem was rectified, it showed up correctly and could be deleted.
-//cannot have extra text in package.json, it will freak out
 
 async function displayBooks() {
   const URL = 'http://localhost:8081/api/books';
@@ -38,14 +37,15 @@ async function displayBooks() {
          <button type="edit" 
           class="btn btn-primary" 
           data-toggle="modal"
-          data-target="#editBookModal">
+          data-target="#editBookModal"
+          id = "showButton"
+          >
           Edit
          </button>
     
         </div>
 
-
-        <form action="http://localhost:8081/book" class = "edit_Form" >
+        <form action="http://localhost:8081/book" class = "edit_Form" id="myEditForm">
         
         <div class="form-group">
          <label for="edit_title_${book.isbn}">Title</label>
@@ -75,6 +75,19 @@ async function displayBooks() {
     `;
     //edit_Form --> label for & id, are the isbn number to prevent issues if there is a repeat author, title, and/or format
     document.getElementById("books").innerHTML = document.getElementById("books").innerHTML + card;
+
+    // Get the button and element
+const showButton = document.getElementById("showButton");
+const myEditForm = document.getElementById("myEditForm");
+
+// Remove the "hidden" class to initially hide the myEditForm
+myEditForm.classList.remove("hides");
+
+// Add event listener to the button
+showButton.addEventListener("click", function() {
+  // Add the "hidden" class to hide the myEditForm again
+  myEditForm.classList.add("hides");
+});
   }
 }
 
@@ -118,5 +131,8 @@ const setEditBook = async (isbn) => {
     .catch(error => {
       console.log(`Edit was NOT successful for isbn: ${isbn}`, error);
     })
+
+
+
 
 }

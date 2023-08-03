@@ -1,22 +1,12 @@
-//This is your EXPRESS server
-
-//These are the dependencies we downloaded & will use
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import path from "path";
-//Import const Books from books.js file
 import books from "./books.js";
-//comes with EXPRESS package
 
-//added bookList because it is not being read from line 9 books
-//as per tutorial
-//changed were it all variables that said books to bookList
 let bookList = books;
 
-//Initializes instance of EXPRESS & creates the app
 const app = express();
-//Determines PORT you want to use
 const PORT = 8081;
 
 //Configures CORS middleware
@@ -38,14 +28,11 @@ app.get('/api/books', (req, res) => {
 
 app.use(bodyParser.json());
 
-//ADDING NEW BOOK
+//*************** ADD NEW BOOK ****************
 app.post('/book', (req, res) => {
   const book = req.body;
-
-  //output the book to the console for debugging;
   console.log(book);
   bookList.push(book);
-
   //res.send("Book added");
   res.redirect('/');
 });
@@ -55,7 +42,7 @@ app.post('/book', (req, res) => {
 //   //res.redirect('/');
 // });
 
-//DELETING INFO
+//*************** DELETE BOOK ********************
 app.delete('/book/:isbn', (req, res) => {
   // Reading isbn from the URL
   const isbn = req.params.isbn;
@@ -67,13 +54,11 @@ app.delete('/book/:isbn', (req, res) => {
     }
     return false;
   });
-
   res.send('Book is deleted');
-
 });
 
 
-//EDITING BOOK
+//************* EDIT BOOK *********************
 app.put('/book/:isbn', (req, res) => {
   // Reading isbn from the URL
   const isbn = req.params.isbn;
@@ -87,10 +72,8 @@ app.put('/book/:isbn', (req, res) => {
     }
   }
   console.log('Trying to edit');
-  //
   res.send({ message: 'Book is edited' });
-});
-
+})
 
 //This string gets sent to the DEFAULT PORT path, declared in const PORT
 //In this case it will be on localhost:8081

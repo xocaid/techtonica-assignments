@@ -23,7 +23,7 @@ h1 {
     padding: 5%;
     background-color: rgb(187, 102, 253, 0.3);
 }
-
+/*************** BUTTON ******************/
 .btn {
     background-color: rgb(98, 132, 255);
     color: rgb(228, 237, 254);
@@ -37,4 +37,8 @@ h1 {
 
 .btn[type='delete'] {
     background-color: rgb(255, 74, 74);
+}
+/************** Hide EDIT book form **************/
+.hides{
+display: none;
 }
