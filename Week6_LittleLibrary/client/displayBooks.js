@@ -38,14 +38,14 @@ async function displayBooks() {
           class="btn btn-primary" 
           data-toggle="modal"
           data-target="#editBookModal"
-          id = "showButton"
+          id = "showButton_${book.isbn}"
           >
           Edit
          </button>
     
         </div>
 
-        <form action="http://localhost:8081/book" class = "edit_Form" id="myEditForm">
+        <form action="http://localhost:8081/book" class = "edit_Form hides"  id="myEditForm_${book.isbn}">
         
         <div class="form-group">
          <label for="edit_title_${book.isbn}">Title</label>
@@ -77,16 +77,19 @@ async function displayBooks() {
     document.getElementById("books").innerHTML = document.getElementById("books").innerHTML + card;
 
     // Get the button and element
-const showButton = document.getElementById("showButton");
-const myEditForm = document.getElementById("myEditForm");
+const showButton = document.getElementById(`showButton_${book.isbn}`);
+const myEditForm = document.getElementById(`myEditForm_${book.isbn}`);
 
 // Remove the "hidden" class to initially hide the myEditForm
-myEditForm.classList.remove("hides");
+// myEditForm.classList.remove("hides");
+console.log(showButton, 'HELLOOOOOO')
 
 // Add event listener to the button
 showButton.addEventListener("click", function() {
   // Add the "hidden" class to hide the myEditForm again
-  myEditForm.classList.add("hides");
+  // myEditForm.classList.add("hides");
+    myEditForm.classList.remove("hides");
+    console.log('VLADIMIR WAS HERE')
 });
   }
 }
