@@ -24,7 +24,7 @@ const Weather = () => {
     loadData();
   }, []);
   if (!weather) {
-    return <div>loading...</div>;
+    return <div>Loading...</div>;
   } else {
 
     return (
