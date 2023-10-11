@@ -1,25 +1,39 @@
-# READ ME for Weather App Project 
-## Week 7
--------------
-The intent of the project was to create a simple weather application with React. 
-<p>Requirements:</p>
+# Weather App
 
-<li> Weather Icon
-<li> City
-<li> Current Temperature
-<li> Feels Like
-<li> Max Temp
-<li> Min Temp
-<li> Humidity
-<li> Sunrise
-<li> Sunset
+## Description
+The goal of this project was to create a simple full-stack weather application using React for the frontend and Express for the backend. The [OpenWeatherMap API](https://openweathermap.org/) was used to provide accurate weather data and to practice connecting to third party APIs, using API leys to access weather data and by parsing JSON data.
 
-<p>
-<p>Display at least ONE city's weather information
-<p>Some items need to be converted from Kelvin to Fahrenheit.
-<p>Key needs to be added but hidden properly
+## Installation 
+To get started with the project, follow these steps:
+<br/>
 
-<p>OPTIONAL:
-<li> Search Bar
+1. Clone the repository to your local machine using the following command:
+```
+git clone git@github.com:xocaid/techtonica-assignments.git
+```
+2. Navigate to the project directory:
+```
+cd Week7_WeatherApp 
+```
+3. Run command to download dependencies for client & server folders:
+```
+npm install
+```
+4. Open app in the development mode, run command for client & server:
+```
+npm start
+```
+5. Open [http://localhost:8001](http://localhost:8001) to view it in your browser.
 
-NOTES
+## API Key
+You will need an OpenWeatherMap API key in order to run this project. The API Key format can be found in `.envexample` and will be used in the backend GET request. Make sure to include your `.env` in the `.gitignore` file.
+
+## Project Requirements
+- Essential weather information should display: city name, current weather icon, temperature, humidity, wind speed, etc.
+- Show weather condition icons
+- Ensure responsive design
+
+## Future Development
+- <b>Search Functionality:</b> Allow users to search for the desired city weather information.
+- <b>Extended Forecasts:</b> Offer users 10-day or monthly forecasts to plan ahead.
+- <b>Weather Widgets:</b> Automatically fill in the weather widgets as per weather data.
