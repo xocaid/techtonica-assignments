@@ -1,7 +1,7 @@
 //This is the page the client sees
 import './App.css';
-import Weather from './components/weather';
-import OaxWeat from './components/OaxWeat';
+import Weather from './components/DefaultWeather';
+import OaxWeat from './components/OaxacaWeather';
 
 
 //Student school are calling data from client -->components --> students.js
