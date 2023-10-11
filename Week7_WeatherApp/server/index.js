@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 //GET request, fetching the information from the API database
 //res.send is the HTTP response
 //${process.env.API_KEY} is your hidden key; API_KEY is the same variable in your .env file
-app.get('/api/weather', (req, res) => {
+app.get('/api/defaultWthr', (req, res) => {
     const url = `http://api.openweathermap.org/data/2.5/weather?q=london&APPID=${process.env.API_KEY}&units=imperial`;
   fetch(url)
   .then((response) => response.json())
@@ -33,7 +33,7 @@ app.get('/api/weather', (req, res) => {
   });
 })
 
-app.get('/api/oaxweather', (req, res) => {
+app.get('/api/OaxacaWeather', (req, res) => {
   const OAXWEAT = [
     {
       "coord": {
@@ -81,49 +81,3 @@ app.get('/api/oaxweather', (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`Back-end server is running on port: ${PORT}.`));
-
-//   const WEATHER = [
-//     {
-//       "coord": {
-//           "lon": -0.13,
-//           "lat": 51.51
-//       },
-//       "weather": 
-//           {
-//               "id": 300,
-//               "main": "Drizzle",
-//               "description": "light intensity drizzle",
-//               "icon": "09d"
-//           },
-//       "base": "stations",
-//       "main": {
-//           "temp": 280.32,
-//           "pressure": 1012,
-//           "humidity": 81,
-//           "temp_min": 279.15,
-//           "temp_max": 281.15
-//       },
-//       "visibility": 10000,
-//       "wind": {
-//           "speed": 4.1,
-//           "deg": 80
-//       },
-//       "clouds": {
-//           "all": 90
-//       },
-//       "dt": 1485789600,
-//       "sys": {
-//           "type": 1,
-//           "id": 5091,
-//           "message": 0.0103,
-//           "country": "GB",
-//           "sunrise": 1485762037,
-//           "sunset": 1485794875
-//       },
-//       "id": 2643743,
-//       "name": "London",
-//       "cod": 200
-//   }
-//   ]
-//   res.json(WEATHER);
-// });
