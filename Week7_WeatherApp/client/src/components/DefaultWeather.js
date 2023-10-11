@@ -29,7 +29,7 @@ const DefaultWeather = () => {
   } else {
 
     return (
-      <div className="Container">
+      <div className="WeatherStatsContainer">
         <h2>The weather in {defaultWthr.name} is currently:</h2>
         <img src={'http://openweathermap.org/img/wn/04d@2x.png'} alt="broken clouds" />
         <WeatherStats name={'City'} data={defaultWthr.name} />

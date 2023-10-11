@@ -29,7 +29,7 @@ const OaxacaWeather = () => {
   } else {
 
     return (
-      <div className="Container1">
+      <div className="WeatherStatsContainer">
         <h2>The weather in {OaxWeather[0].name} is currently:</h2>
 
         <img src={'http://openweathermap.org/img/wn/03n@2x.png'} alt="cloudy" />
