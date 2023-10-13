@@ -3,6 +3,8 @@
 ## Description
 The goal of this project was to build a game that fetches data from an external API, connecting the backend and frontend for a seamless user experience. This project uses Node, Express, and a free JSON API, [Trivia API](https://opentdb.com/api_config.php). The [Build a Quiz App tutorial](https://www.freecodecamp.org/news/how-to-build-a-quiz-app-using-react/) was used for guidance. 
 
+![Quiz App Preview Image](.github/QuizApp.png "Quiz App Preview")
+
 ## Project Requirements
  - Game should fetch real data from Trivia API and display it correctly in the frontend.
  - Track user progress, recording the number of questions answered (in)correctly.

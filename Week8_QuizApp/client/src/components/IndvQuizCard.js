@@ -20,43 +20,41 @@ const InvQuizCard = ({ question, setScore }) => {
 
 
   const handleClick = (e) => {
-    if (e.target.value === decodeHtml(question.correct_answer))
-      {
+    if (e.target.value === decodeHtml(question.correct_answer)) {
       setAnsOption(!ansOption);
-      setScore(s => s+1)
+      setScore(s => s + 1)
 
-    }else{
-      e.target.style.backgroundColor = 'black';
-
+    } else {
+      e.target.style.textDecoration = 'line-through';
     }
   }
 
 
-return (
-  <div className={"question-section"}>
-    <div className='question-text'>
-      {/* Need to change number to 1-4, may need to add useState to start at 0 */}
-      {/* <p>Question {question.question.length}</p>  */}
-      {decodeHtml(question.question)}
-    </div>
-{ansOption ? (
-    <div className='answer-section'>
-      {/* Calls information from the answerOptions created in the parent component.
+  return (
+    <div className={"question-section"}>
+      <div className='question-text'>
+        {/* Need to change number to 1-4, may need to add useState to start at 0 */}
+        {/* <p>Question {question.question.length}</p>  */}
+        {decodeHtml(question.question)}
+      </div>
+      {ansOption ? (
+        <div className='answer-section'>
+          {/* Calls information from the answerOptions created in the parent component.
         Answers need to be given an index as per React; option represents the answer option, 
         it is also added as the value */}
-      {
-        question.answerOptions.map(
-          (answer, index) => {
-            return (
-              <button key={index} value={decodeHtml(answer)} onClick={handleClick}>{decodeHtml(answer)}</button>
+          {
+            question.answerOptions.map(
+              (answer, index) => {
+                return (
+                  <button key={index} value={decodeHtml(answer)} onClick={handleClick}>{decodeHtml(answer)}</button>
+                )
+              }
             )
           }
-        )
+        </div>) : (<p>CORRECT</p>)
       }
-    </div>):(<p>CORRECT</p>)
-}
-  </div>
-);
+    </div>
+  );
 };
 
 export default InvQuizCard;

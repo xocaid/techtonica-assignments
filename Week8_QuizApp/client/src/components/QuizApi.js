@@ -50,7 +50,7 @@ const QuizApi = () => {
 
   return (
     <div>
-      <h2>You scored {score} out of {questions.length}</h2>
+      <h2 className="user-score">You scored {score} out of {questions.length}</h2>
       {
         questions.map(
           (question, index) => {
