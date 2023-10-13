@@ -1,14 +1,14 @@
-import { useState } from "react";
+import React from 'react';
 
-const QuestionReset = () =>{
+const QuestionReset = () => {
 
 
-// const restartGame = () => {
-//   setScore(0);
-//   setAnsOption(true);
-// }
+  // const restartGame = () => {
+  //   setScore(0);
+  //   setAnsOption(true);
+  // }
 
-  return(
+  return (
     // <button onClick={() => restartGame()}>Reset Game</button>
     <button>Play Again</button>
   )
