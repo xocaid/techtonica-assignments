@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const QuizQs = () => {
+const QuizFirstTry = () => {
   //This is to access the hardcode data from index.js
   const [quizInfo, setQuizInfo] = useState(0);
 
@@ -102,4 +102,4 @@ setShowScore(true);
     </div>
   )
 }
-export default QuizQs;
+export default QuizFirstTry;

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import QuestionCard from "./questionCard";
+import IndvQuizCard from "./IndvQuizCard";
 
 
-const QuizActual = () => {
+const QuizApi = () => {
   //This is to access the hardcode data from index.js
 //setQuestions is accessing the data.results from API and sending it to questions, so we can use it(remember it's data)
   const [questions, setQuestions] = useState([]);
@@ -54,7 +54,7 @@ const QuizActual = () => {
       {
         questions.map(
           (question, index) => {
-            return <QuestionCard key={index} question={question} setScore={setScore} />;
+            return <IndvQuizCard key={index} question={question} setScore={setScore} />;
           }
         )
       }
@@ -62,4 +62,4 @@ const QuizActual = () => {
   )
 
 }
-export default QuizActual;
+export default QuizApi;

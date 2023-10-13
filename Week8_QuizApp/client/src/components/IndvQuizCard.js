@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const QuestionCard = ({ question, setScore }) => {
+const InvQuizCard = ({ question, setScore }) => {
 
   //ansOption is allowing us to change buttons to black, 
   //also when click on correct answer, it prints correct
@@ -59,4 +59,4 @@ return (
 );
 };
 
-export default QuestionCard;
+export default InvQuizCard;

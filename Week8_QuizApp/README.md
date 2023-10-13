@@ -30,4 +30,4 @@ npm start
 ```
 5. Open [http://localhost:3000](http://localhost:3000) to view in development mode in your browser.
 
-6. Open [http://localhost:8080](http://localhost:8080) to view in backend in your browser. 
+6. Open [http://localhost:8080](http://localhost:8080) to view the backend in your browser. 

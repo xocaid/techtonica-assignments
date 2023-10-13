@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuestionReset = () => {
+const ResetGame = () => {
 
 
   // const restartGame = () => {
@@ -13,4 +13,4 @@ const QuestionReset = () => {
     <button>Play Again</button>
   )
 }
-export default QuestionReset;
+export default ResetGame;
