@@ -4,7 +4,7 @@ import { Link } from 'react'
 const Footer = () => {
     return (
         <div className='Footer'>
-            For more information visit: <a href='https://openweathermap.org/' target="_blank" class='link'>
+            For more information visit: <a href='https://openweathermap.org/' target="_blank" className='link'>
                 OpenWeatherMap.org
             </a>
         </div>
