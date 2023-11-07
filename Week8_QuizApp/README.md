@@ -1,6 +1,5 @@
 # Build a Game/Quiz
 
-## Description
 The goal of this project was to build a game that fetches data from an external API, connecting the backend and frontend for a seamless user experience. This project uses Node, Express, and a free JSON API, [Trivia API](https://opentdb.com/api_config.php). The [Build a Quiz App tutorial](https://www.freecodecamp.org/news/how-to-build-a-quiz-app-using-react/) was used for guidance. 
 
 ![Quiz App Preview Image](.github/QuizApp.png "Quiz App Preview")
@@ -33,3 +32,10 @@ npm start
 5. Open [http://localhost:3000](http://localhost:3000) to view in development mode in your browser.
 
 6. Open [http://localhost:8080](http://localhost:8080) to view the backend in your browser. 
+
+## Future Development 
+- Offer a variety of categories for users to choose from.
+- Allow users to customize the length of quiz by selecting the number of questions they want.
+- Implement a scoreboard for each quiz category.
+- Multiplayer feature - allows users to compete with others to make the experience more interactive and engaging.
+- Add a time limit for users to have a more challenging experience and creating a more dynamic environment. 
