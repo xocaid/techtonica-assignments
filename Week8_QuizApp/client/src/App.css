@@ -63,7 +63,11 @@ button {
   outline: none;
 }
 
-button:hover {
+/* If button is ACTIVE & NOT 'play-again' button, then hover behavior.
+   If button is DISABLED (prop/attribute) is present and TRUE,
+   THEN don't show the hover behavior.
+*/
+button:not(.play-again):not(:disabled):hover {
   color: rgb(0, 31, 135);
   background-color: white;
   border-style: solid;

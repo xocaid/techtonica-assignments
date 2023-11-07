@@ -1,13 +1,7 @@
-import { useState } from "react";
+import React from "react";
 
-const InvQuizCard = ({ question, setScore }) => {
-
-  //ansOption is allowing us to change buttons to black, 
-  //also when click on correct answer, it prints correct
-  const [ansOption, setAnsOption] = useState(true);
-
-
-  //question, replaces props  here and calls the data directly from data.results
+const InvQuizCard = ({ question, onAnswerClicked, questionNum, isAnswerCorrect, answerChosen }) => {
+  //prop names in parent are only used in the child component, the values assigned to the props come from the parent
 
   //Decode Entities
   //Prevents the HTML Character Entities from appearing on the text
@@ -18,41 +12,41 @@ const InvQuizCard = ({ question, setScore }) => {
     return txt.value;
   }
 
-
-  const handleClick = (e) => {
-    if (e.target.value === decodeHtml(question.correct_answer)) {
-      setAnsOption(!ansOption);
-      setScore(s => s + 1)
-
-    } else {
-      e.target.style.textDecoration = 'line-through';
-    }
-  }
-
-
   return (
     <div className={"question-section"}>
       <div className='question-text'>
-        {/* Need to change number to 1-4, may need to add useState to start at 0 */}
-        {/* <p>Question {question.question.length}</p>  */}
         {decodeHtml(question.question)}
       </div>
-      {ansOption ? (
-        <div className='answer-section'>
-          {/* Calls information from the answerOptions created in the parent component.
-        Answers need to be given an index as per React; option represents the answer option, 
-        it is also added as the value */}
-          {
-            question.answerOptions.map(
-              (answer, index) => {
-                return (
-                  <button key={index} value={decodeHtml(answer)} onClick={handleClick}>{decodeHtml(answer)}</button>
-                )
-              }
-            )
-          }
-        </div>) : (<p>CORRECT</p>)
-      }
+
+      <div className='answer-section'>
+        {/* question.shuffledAnswer --> Calls shuffledAnswers created in the parent component */}
+        {
+          question.shuffledAnswers.map(
+            (answer, index) => {
+              // isSelected --> Loops through each possible answer(button) & checks if button has been clicked
+              //It has to be true/false but not null
+              const isSelected = (answer === answerChosen);
+              let style = {};
+              //if isSelected is true meaning it was clicked regardless of the (in)correct answer was clicked THEN do a comparison
+              //isAnswerCorrect provides the value at index, doesn't care if its true/false
+              //If true then A, if false then B
+              if (isSelected) {
+                style.backgroundColor = (isAnswerCorrect ? 'green' : 'red');
+              };
+              return (
+                <button key={index}
+                  //Disable answer button if isAnswerCorrect is true/false not null
+                  disabled={isAnswerCorrect !== null}
+                  style={style}
+                  value={decodeHtml(answer)}
+                  //When onClick is clicked, onAnswerClicked fx is triggered & the arguments are passed to the parent
+                  onClick={() => onAnswerClicked(question, answer, questionNum)}>{decodeHtml(answer)}
+                </button>
+              )
+            }
+          )
+        }
+      </div>
     </div>
   );
 };
