@@ -1,9 +1,9 @@
-# Quiz Game
+# Quiz (Game)
 
-## Description
-This is a quiz(game) designed to test your knowledge of the command line interface, developed using React and features flip cards to present questions and answers. The project serves as a practice exercise for implementing components, props, and state in React. It includes a counter that utilizes the useState hook to update the score on the screen. By playing this game, you can not only enhance your CLI knowledge but also reinforce your understanding of React's core concepts and functionality.
+This is a quiz designed to test your knowledge of the command line interface, developed using React and features flip cards to present questions and answers. The project serves as a practice exercise for implementing components, props, and state in React. It includes a counter that utilizes the useState hook to update the score on the screen. By playing this game, you can not only enhance your CLI knowledge but also reinforce your understanding of React's core concepts and functionality.
 
----
+![Quiz Game Preview Image](.github/QuizGame.png "Quiz Game Preview")
+
 ### Installation
 To get started with the project, follow these steps:
 <br/>
