@@ -2,7 +2,7 @@
 
  Create a webpage featuring one of your favorite recipes. It should display the ingredients, step-by-step instructions, links to similar recipes, and at least one photo. Utilize HTML for structuring the webpage, CSS for styling and layout, and JavaScript DOM to incorporate interactive elements.
 
-![Recipe Page Preview Image](.github/RecipePg.png "Recipe Page Preview")
+![Recipe Page Preview Image](.github/recipePg.png "Recipe Page Preview")
 
 ## Installation
 To get started with the project, follow these steps:
