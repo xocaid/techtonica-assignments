@@ -1,17 +1,15 @@
 //FRONTEND
 import './App.css';
-// import QuizQs from "./components/quizInitial";
-import QuizActual from "./components/quizActual";
-import QuestionReset from "./components/questionReset"
+// import QuizFirstTry from "./components/QuizFirstTry";
+import QuizApi from "./components/QuizApi";
 
 function App() {
   return (
     <div className="App">
       <h1>Quiz App</h1>
       <p>Welcome to this mini quiz!</p>
-      {/* <QuizQs /> */}
-      <QuizActual />
-    <QuestionReset />
+      {/* <QuizFirstTry /> */}
+      <QuizApi />
     </div>
   );
 }
