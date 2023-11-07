@@ -2,7 +2,6 @@
 import './App.css';
 // import QuizFirstTry from "./components/QuizFirstTry";
 import QuizApi from "./components/QuizApi";
-import ResetGame from "./components/ResetGame"
 
 function App() {
   return (
@@ -11,7 +10,6 @@ function App() {
       <p>Welcome to this mini quiz!</p>
       {/* <QuizFirstTry /> */}
       <QuizApi />
-    <ResetGame />
     </div>
   );
 }
