@@ -1,10 +1,10 @@
 //App.js code was copied from starter code as per instructions
 //App.js was broken down into components as per instructions and for ease
-import Header from "./components/header";
+import Header from "./margins/header";
 import Users from "./components/users";
 import Events from "./components/events";
 import FindEvent from "./components/findevent";
-import Footer from "./components/footer";
+import Footer from "./margins/footer";
 
 import "./App.css";
 

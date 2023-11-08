@@ -3,7 +3,7 @@
 // dot dot slash to move up one directory, this is coming from the src directory --> components directory
 //Calendar image has to be called into the Header
 
-import calendar from "../calendar.png";
+import calendar from "../icons/calendar.png";
 
 const Header = () => {
   return (
