@@ -1,6 +1,6 @@
 // server/routes/ events.mjs;
 //This code comes directly from the instructions, swapped user with events, added router to index.js
-import express from "express"; 
+import express from "express";
 import db from "../db/db-connection.js";
 
 const router = express.Router();
@@ -9,7 +9,8 @@ const router = express.Router();
 router.get('/', async function (req, res, next) {
 
   try {
-    const events = await db.any('SELECT * FROM events', [true]);
+    //SQL Query to provide TIMESTAMP data type separately as date & time
+    const events = await db.any("SELECT TO_CHAR(date, 'HH:MI AM') AS event_time,TO_CHAR(date, 'DD/MM/YY') AS event_date,name, description, category FROM events", [true]);
     res.send(events);
   } catch (e) {
     return res.status(400).json({ e });
@@ -20,18 +21,17 @@ router.get('/', async function (req, res, next) {
 
 router.post('/', async (req, res) => {
   const events = {
-    id: req.body.id,
     name: req.body.name,
     description: req.body.description,
     category: req.body.category,
-    date: req.body.date
+    date: req.body.date,
 
   };
   console.log(events);
   try {
     const createdEvents = await db.one(
-      'INSERT INTO events(id, name, description, category, date) VALUES($1, $2, $3, $4, $5) RETURNING *',
-      [events.id, events.name, events.description, events.category, events.date]
+      'INSERT INTO events(name, description, category, date) VALUES($1, $2, $3, $4) RETURNING *',
+      [events.name, events.description, events.category, events.date]
     );
     console.log(createdEvents);
     res.send(createdEvents);
@@ -42,17 +42,17 @@ router.post('/', async (req, res) => {
 
 /* Delete events listing. */
 
-  //Parameterized queries use placeholders instead of directly writing the
-  //values into the statements. Parameterized queries increase security and performance.
+//Parameterized queries use placeholders instead of directly writing the
+//values into the statements. Parameterized queries increase security and performance.
 
 router.delete("/:id", async (req, res) => {
-    // : acts as a placeholder
+  // : acts as a placeholder
   const eventsId = req.params.id;
   try {
-  await db.none("DELETE FROM events WHERE id=$1", [eventsId]);
-  res.send({ status: "success" });
+    await db.none("DELETE FROM events WHERE id=$1", [eventsId]);
+    res.send({ status: "success" });
   } catch (e) {
-  return res.status(400).json({ e });
+    return res.status(400).json({ e });
   }
 });
 

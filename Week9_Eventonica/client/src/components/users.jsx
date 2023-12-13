@@ -1,11 +1,8 @@
 import { useState, useEffect } from "react";
 //Calling DeleteUser Component
 import DeleteUser from "./deleteUser";
-
-//DEFAULT INFO - Mock  users for hardcode data
-// const marlin = { name: "Marlin", email: "marlin@gmail.com", id: "1" };
-// const nemo = { name: "Nemo", email: "nemo@gmail.com", id: "2" };
-// const dory = { name: "Dory", email: "dory@gmail.com", id: "3" };
+import trash from "../icons/trash.png";
+import edit from '../icons/edit.png';
 
 const Users = () => {
   const getUsers = async () => {
@@ -17,21 +14,12 @@ const Users = () => {
     getUsers();
   }, []);
 
-  //useState for user/setUsers added as per instructions
-  //The default state will display: marlin, nemo, & dory
   //users/setUsers will refer to the mock users & tack on the newUser at the end of the list
   const [users, setUsers] = useState([]);
 
   //useState will store the new user(Add User)
   //The original state will be an empty string, this acts similar to placeholder text
   const [newUser, setNewUser] = useState({ name: "", email: "", id: "" })
-  /*  
-  newUser/setNewUser can be broken down more to: 
-    const [name, setName] = useState(""); {setName};
-    const [id, setId] = useState(""); {setId}
-    const [email, setEmail] = useState(""); {setEmail}
-    Calling as {set("name")}, {set("email")}, {set("id")}, this is a shorter, condensed version
-    */
 
   //This is associated with the newUser/setNewUser
   //input would be name,email,id
@@ -45,20 +33,6 @@ const Users = () => {
       }));
     };
   };
-
-  //This is from the instructions for Event Handler for Form
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(newUser);
-  //   /*spread operator is adding mock users, and then adds the newUser we add
-  //   at the end of list. Spread operator includes the already existing array*/
-  //   //Logs the newUser when Submit button is clicked
-  //   setUsers([...users, newUser]);//as soon as submit happens, the new entries are added and mapped
-  //   console.log(users);
-  //   //Reset the input fields to empty string on submit
-  //   setNewUser({ name: "", email: "", id: "" });
-  //   //Longer version: setName(""); setId(""); setEmail("");
-  // };
 
   //ADD NEW USER - EVENT HANDLER
   const handleAddNewUser = async (e) => {
@@ -97,14 +71,16 @@ const Users = () => {
 
 
   return (
-    <section className="user-management">
-      <h2>User Management</h2>
-      <table class="users-table">
+    <section className="userDiv">
+      <h2>Contacts</h2>
+      <table className="users-table">
         <thead>
           <tr>
-            <th>Name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
             <th>Email</th>
-            <th>ID</th>
+            <th>Phone Number</th>
+            <th></th>
             <th></th>
           </tr>
         </thead>
@@ -118,20 +94,21 @@ const Users = () => {
           {users.map((user, index) => {
             if (user.id === editingUserId) {
               return (
-                <tr key={index}>
-                  <td> {user.name} </td>
+                <tr key={index} className='users_tr'>
+                  <td> {user.first_name} </td>
+                  <td> {user.last_name} </td>
                   <td>{user.email} </td>
-                  <td> {user.id}</td>
-                  </tr>
-                  );
+                </tr>
+              );
             } else {
               return (
                 <tr key={index}>
-                  <td> {user.name} </td>
+                  <td> {user.first_name} </td>
+                  <td> {user.last_name} </td>
                   <td>{user.email} </td>
-                  <td> {user.id}</td>
-                  <td><button onClick={() => handleDeleteUser(user.id)}>Delete User</button></td>
-                  <td><button onClick={() => setEditingUserId(user.id)}>Edit</button></td>
+                  <td>{user.phone_number} </td>
+                  <td><img src={trash} className='icon-btn' onClick={() => handleDeleteUser(user.id)} /></td>
+                  <td><img src={edit} className="icon-btn" onClick={() => setEditingUserId(user.id)} /></td>
                 </tr>
 
               );
@@ -140,22 +117,34 @@ const Users = () => {
         </tbody>
       </table>
 
-      <div className="addusersdiv">
+      <div className="add_Divs">
         {/* Added Id & Email fields as per instructions */}
         {/* Each field has to have an onChange event, change is actively happening as we are typing into the text box,
         when that change is happening it changes the state for setNewUser, doesn't do anything until it submits,
         it just registers it*/}
-        <h3>Add User</h3>
+        <h3 className="add_header">Add User</h3>
 
-        <form id="add-user" action="#" onSubmit={handleAddNewUser}>
+        <form className='addForm' id="add-user" action="#" onSubmit={handleAddNewUser}>
           <fieldset>
-            <label>Name: </label>
+            <label>First Name: </label>
             <input
               type="text"
-              id="add-user-name"
-              name="name"
+              id="add-first-name"
+              name="first_name"
+              placeholder="Jane"
               value={newUser.name}//changes the name; long version value={name}
-              onChange={set("name")} //handleChange function
+              onChange={set("first_name")} //handleChange function
+            />
+            <br />
+
+            <label>Last Name: </label>
+            <input
+              type="text"
+              id="add-last-name"
+              name="last_name"
+              placeholder="Smith"
+              value={newUser.name}//changes the name; long version value={name}
+              onChange={set("last_name")} //handleChange function
             />
             <br />
 
@@ -164,19 +153,12 @@ const Users = () => {
               type="text"
               id="add-user-email"
               name="email"
+              placeholder="janeSmith@example.com"
               value={newUser.email}//changes the email; long version value={email}
               onChange={set("email")} //handleChange function
             />
             <br />
 
-            {/* <label>User Id: </label>
-            <input
-              type="text"
-              id="add-user-id"
-              name="name"
-              value={newUser.id}//changes the id; long version value={id}
-              onChange={set("id")} //handleChange function
-            /> */}
           </fieldset>
           {/* Add more form fields here */}
           {/*Button for SUBMIT BUTTON, value can be named anything*/}
