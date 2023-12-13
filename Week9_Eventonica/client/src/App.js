@@ -4,7 +4,7 @@ import Header from "./margins/header";
 import Users from "./components/users";
 import Events from "./components/events";
 import FindEvent from "./components/findevent";
-import Footer from "./margins/footer";
+
 
 import "./App.css";
 
@@ -15,13 +15,11 @@ function App() {
       <Header />
       <main>
         <div className="user-and-events">
-          <Users />
           <Events />
+          <Users />
         </div>
       </main>
       <FindEvent />
-      {/* Imported Footer from the componenet to call the instance of it in App.js */}
-      <Footer />
     </div>
   );
 }
