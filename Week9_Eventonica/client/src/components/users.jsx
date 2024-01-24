@@ -19,7 +19,7 @@ const Users = () => {
 
   //useState will store the new user(Add User)
   //The original state will be an empty string, this acts similar to placeholder text
-  const [newUser, setNewUser] = useState({ name: "", email: "", id: "" })
+  const [newUser, setNewUser] = useState({ first_name: "", last_name: "", email: "", phone_number: "" })
 
   //This is associated with the newUser/setNewUser
   //input would be name,email,id
@@ -48,7 +48,7 @@ const Users = () => {
     });
     const content = await response.json();
     setUsers([...users, content]);
-    setNewUser({ name: "", email: "", id: "" });
+    setNewUser({ first_name: "", last_name: "", email: "", phone_number: "" });
   };
 
   //DELETE USER - EVENT HANDLER
@@ -132,7 +132,7 @@ const Users = () => {
               id="add-first-name"
               name="first_name"
               placeholder="Jane"
-              value={newUser.name}//changes the name; long version value={name}
+              value={newUser.first_name}//changes the name; long version value={name}
               onChange={set("first_name")} //handleChange function
             />
             <br />
@@ -143,7 +143,7 @@ const Users = () => {
               id="add-last-name"
               name="last_name"
               placeholder="Smith"
-              value={newUser.name}//changes the name; long version value={name}
+              value={newUser.last_name}//changes the name; long version value={name}
               onChange={set("last_name")} //handleChange function
             />
             <br />
@@ -156,6 +156,17 @@ const Users = () => {
               placeholder="janeSmith@example.com"
               value={newUser.email}//changes the email; long version value={email}
               onChange={set("email")} //handleChange function
+            />
+            <br />
+
+            <label>Phone # : </label>
+            <input
+              type="text"
+              id="add-user-phone-number"
+              name="phone_number"
+              placeholder="(312) 555-0123"
+              value={newUser.phone_number}
+              onChange={set("phone_number")}
             />
             <br />
 
