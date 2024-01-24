@@ -8,10 +8,16 @@ const FindEvent = () => {
             <label htmlFor="date-search">Date: </label>
             <input type="text" id="date-search" placeholder="YYYY-MM-DD" />
           </fieldset>
-          <fieldset>
-            <label htmlFor="category-search">Category: </label>
-            <input type="text" id="category-search" placeholder="Social/Personal/Work" />
-          </fieldset>
+          <label for="category">Category: </label>
+              <select name="
+              category" id="category"
+                >
+                <option value="" disable>Select Category</option>
+                <option value="personal">Personal</option>
+                <option value="school">School</option>
+                <option value="party">Party</option>
+                <option value="work">Work</option>
+              </select>
 
           <input type="submit" value="Search Event" />
         </form>
