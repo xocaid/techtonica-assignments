@@ -1,7 +1,6 @@
 import { useState, useReducer, useEffect } from "react";
-import DeleteEvent from "./deleteEvent";
-import trash from "../icons/trash.png";
-import edit from '../icons/edit.png';
+import trash from "../../icons/trash.png";
+import edit from '../../icons/edit.png';
 
 
 //useReducer helps manage complex state logic in React; stores & updates state like useState
@@ -86,7 +85,7 @@ const Events = () => {
   //initialState needs to be declared for useReducer
   const initialState = {
     id: "",
-    date: null,
+    date: "",
     description: "",
     category: "",
     name: "",
@@ -154,8 +153,8 @@ const Events = () => {
                   <td >{event.name} </td>
                   <td >{event.description} </td>
                   <td className="category_event">{event.category}</td>
-                  <td><img src={trash} className="icon-btn" onClick={() => handleDeleteEvent(event.id)} /></td>
-                  <td><img src={edit} className="icon-btn" onClick={() => handleDeleteEvent(event.id)} /></td>
+                  <td><img src={trash} className="icon-btn" alt='trash-icon' onClick={() => handleDeleteEvent(event.id)} /></td>
+                  <td><img src={edit} className="icon-btn" alt='edit-icon' onClick={() => handleDeleteEvent(event.id)} /></td>
                 </tr>
               );
             })}
@@ -211,9 +210,11 @@ const Events = () => {
               />
               <br />
 
-              <label for="category">Category: </label>
-              <select name="
-              category" id="category"
+              <label htmlFor="category">Category: </label>
+              <select
+                required
+                name="category"
+                id="category"
                 value={state.category}
                 onChange={(e) =>
                   dispatch({
@@ -221,11 +222,11 @@ const Events = () => {
                     payload: e.target.value,
                   })
                 }>
-                <option value="" disable>Select Category</option>
-                <option value="personal">Personal</option>
-                <option value="school">School</option>
-                <option value="party">Party</option>
-                <option value="work">Work</option>
+                <option value='' disabled >Select Category</option>
+                <option >Personal</option>
+                <option >School</option>
+                <option >Party</option>
+                <option >Work</option>
               </select>
 
               <br />

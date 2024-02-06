@@ -1,9 +1,9 @@
 //App.js code was copied from starter code as per instructions
 //App.js was broken down into components as per instructions and for ease
 import Header from "./margins/header";
-import Users from "./components/users";
-import Events from "./components/events";
-import FindEvent from "./components/findevent";
+import Users from './components/users/users.js'
+import Events from "./components/events/events.js";
+import FindEvent from "./components/events/findEvent.js"
 
 
 import "./App.css";
