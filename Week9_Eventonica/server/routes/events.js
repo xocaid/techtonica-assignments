@@ -10,7 +10,16 @@ router.get('/', async function (req, res, next) {
 
   try {
     //SQL Query to provide TIMESTAMP data type separately as date & time
-    const events = await db.any("SELECT TO_CHAR(date, 'HH:MI AM') AS event_time,TO_CHAR(date, 'DD/MM/YY') AS event_date,name, description, category FROM events", [true]);
+    const events = await db.any(
+      `SELECT 
+      id,
+      TO_CHAR(date, 'HH:MI AM') AS event_time,
+      TO_CHAR(date, 'MM/DD/YY') AS event_date,
+      name, 
+      description, 
+      category 
+      FROM events`,
+      [true]);
     res.send(events);
   } catch (e) {
     return res.status(400).json({ e });
@@ -30,7 +39,14 @@ router.post('/', async (req, res) => {
   console.log(events);
   try {
     const createdEvents = await db.one(
-      'INSERT INTO events(name, description, category, date) VALUES($1, $2, $3, $4) RETURNING *',
+      `INSERT INTO events(name, description, category, date) 
+      VALUES($1, $2, $3, $4) 
+      RETURNING id,
+      TO_CHAR(date, 'HH:MI AM') AS event_time,
+      TO_CHAR(date, 'MM/DD/YY') AS event_date,
+      name, 
+      description, 
+      category`,
       [events.name, events.description, events.category, events.date]
     );
     console.log(createdEvents);
@@ -49,7 +65,10 @@ router.delete("/:id", async (req, res) => {
   // : acts as a placeholder
   const eventsId = req.params.id;
   try {
-    await db.none("DELETE FROM events WHERE id=$1", [eventsId]);
+    await db.none(`
+    DELETE FROM events 
+    WHERE id=$1`,
+      [eventsId]);
     res.send({ status: "success" });
   } catch (e) {
     return res.status(400).json({ e });
